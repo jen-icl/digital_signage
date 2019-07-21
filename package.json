@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jen-icl/digitalsignage.git"
+    "url": "https://github.com/jen-icl/digital_signage.git"
   },
   "dependencies": {
     "firebase": "^5.7.0",
