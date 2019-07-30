@@ -8,7 +8,6 @@ class Location extends Component {
     goToLocation = event => {
         event.preventDefault();
         const locationName = this.state.selectedLocation;
-        this.props.identifyLocation(locationName);
         this.props.history.push(`/store/${locationName}`);
     }
 
@@ -19,14 +18,14 @@ class Location extends Component {
     render() {
         const {location} = this.props;
         const locationList = Object.keys(location).map(key => (
-            <option key={key} value={key}>{location[key].name}</option>
+            <option key={key} value={key}>{key}</option>
         ));
 
         return (
             <form onSubmit={this.goToLocation}>
                 <h2>Location</h2>
-                <select name="location" onChange={this.handleChange}>
-                    <option default value="default">Select a Location</option>
+                <select name="location" onChange={this.handleChange} defaultValue="default">
+                    <option disabled value="default">Select a Location</option>
                     {locationList}
                 </select>
                 <button type="submit">Visit Location →</button>
