@@ -1,7 +1,6 @@
 const db = {
-    'Irvine': {
-        'name': 'Irvine, CA',
-        'Lobby (Room)': {
+    'Irvine, CA': {
+        'Lobby': {
             'Default (Board)': {
                 'Welcome (Panel)': {
                     'type': 'text',
@@ -44,7 +43,7 @@ const db = {
                 }
             }
         },
-        'Classroom (Room)': {
+        'Classroom': {
             'Default (Board)': {
                 'Activity List Panel': {
                     'type': 'list',
@@ -74,9 +73,8 @@ const db = {
             }
         }
     },
-    'Reno': {
-        'name': 'Reno, CA',
-        'Lobby (Room)': {
+    'Reno, CA': {
+        'Lobby': {
             'Default (Board)': {
                 'Welcome (Panel)': {
                     'type': 'text',
@@ -119,7 +117,7 @@ const db = {
                 }
             }
         },
-        'Classroom (Room)': {
+        'Classroom': {
             'Default (Board)': {
                 'Activity List Panel': {
                     'type': 'list',
