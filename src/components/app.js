@@ -20,9 +20,9 @@ class App extends Component {
         return (
             <div>
                 <Switch>
-                    <Route exact path="/" render={props => <Location {...props} location={data} />} />
-                    <Route exact path="/store/:location" render={props => <Room {...props} data={data} />} />
-                    <Route exact path="/store/:location/:room" component={Board} />
+                    <Route exact path="/" render={props => <Location {...props} data={data} />} />
+                    <Route exact path="/store/:locationName" render={props => <Room {...props} data={data} />} />
+                    <Route exact path="/store/:locationName/:roomName" render={props => <Board {...props} data={data} />} />
                     <Route component={NotFound} />
                 </Switch>
             </div>

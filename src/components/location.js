@@ -7,17 +7,21 @@ class Location extends Component {
 
     goToLocation = event => {
         event.preventDefault();
-        const locationName = this.state.selectedLocation;
-        this.props.history.push(`/store/${locationName}`);
+        const { selectedLocation } = this.state;
+        const {data} = this.props;
+        this.props.history.push({
+            pathname: `/store/${selectedLocation}`,
+            state: data
+        });
     }
 
     handleChange = event => {
-        this.setState({selectedLocation: event.currentTarget.value});
+        this.setState({ selectedLocation: event.currentTarget.value });
     }
 
     render() {
-        const {location} = this.props;
-        const locationList = Object.keys(location).map(key => (
+        const { data } = this.props;
+        const locationList = Object.keys(data).map(key => (
             <option key={key} value={key}>{key}</option>
         ));
 
