@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import base from '../base';
 import Location from './location';
 import Room from './room';
 import Board from './board';
 import Panel from './panel';
 import NotFound from './notFound';
-import sampledb from '../db';
 
 class App extends Component {
     state = {
@@ -13,7 +13,14 @@ class App extends Component {
     };
 
     componentDidMount() {
-        this.setState({data: sampledb});
+        this.ref = base.syncState('store', {
+            context: this,
+            state: 'data'
+        });
+    }
+
+    componentWillUnmount() {
+        base.removeBinding(this.ref);
     }
 
     render() {
@@ -28,7 +35,7 @@ class App extends Component {
                     <Route component={NotFound} />
                 </Switch>
             </div>
-        )
+        );
     }
 }
 
