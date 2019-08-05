@@ -6,7 +6,7 @@ const db = {
                     'type': 'text',
                     'title': 'Welcome to Escape Room Irvine',
                     'content': 'Two Rooms, Two Challenges. Enjoy the fun!',
-                    'background-img': 'url'
+                    'background_img': 'url'
                 },
                 'Activity List (Panel)': {
                     'type': 'list',
@@ -25,20 +25,20 @@ const db = {
                     'type': 'text',
                     'title': 'Welcome (Company) to Escape Room',
                     'content': 'Two Rooms, Two Challenges. Enjoy the fun!',
-                    'background-img': 'url'
+                    'background_img': 'url'
                 },
                 'Back to the Future (Panel)': {
                     'type': 'activity',
                     'title': 'Back to the Future',
                     'desc': 'Travel through time to experience...',
-                    'video': 'vid-url',
+                    'video': 'vid_url',
                     'image': 'url'
                 },
                 'Jail Break (Panel)': {
                     'type': 'activity',
                     'title': 'Jail Break',
                     'desc': 'Escape the bars...',
-                    'video': 'vid-url',
+                    'video': 'vid_url',
                     'image': 'url'
                 }
             }
@@ -60,14 +60,14 @@ const db = {
                     'type': 'activity',
                     'title': 'Back to the Future',
                     'desc': 'Travel through time to experience...',
-                    'video': 'vid-url',
+                    'video': 'vid_url',
                     'image': 'url'
                 },
                 'Jail Break (Panel)': {
                     'type': 'activity',
                     'title': 'Jail Break',
                     'desc': 'Escape the bars...',
-                    'video': 'vid-url',
+                    'video': 'vid_url',
                     'image': 'url'
                 }
             }
@@ -80,7 +80,7 @@ const db = {
                     'type': 'text',
                     'title': 'Welcome to Escape Room Reno',
                     'content': 'Three Rooms, Three Challenges. Enjoy the fun!',
-                    'background-img': 'url'
+                    'background_img': 'url'
                 },
                 'Activity List (Panel)': {
                     'type': 'list',
@@ -99,20 +99,20 @@ const db = {
                     'type': 'text',
                     'title': 'Welcome to Escape Room',
                     'content': 'Two Rooms, Two Challenges. Enjoy the fun!',
-                    'background-img': 'url'
+                    'background_img': 'url'
                 },
                 'Back to the Future (Panel)': {
                     'type': 'activity',
                     'title': 'Back to the Future',
                     'desc': 'Travel through time to experience...',
-                    'video': 'vid-url',
+                    'video': 'vid_url',
                     'image': 'url'
                 },
                 'Jail Break (Panel)': {
                     'type': 'activity',
                     'title': 'Jail Break',
                     'desc': 'Escape the bars...',
-                    'video': 'vid-url',
+                    'video': 'vid_url',
                     'image': 'url'
                 }
             }
@@ -134,14 +134,14 @@ const db = {
                     'type': 'activity',
                     'title': 'Back to the Future',
                     'desc': 'Travel through time to experience...',
-                    'video': 'vid-url',
+                    'video': 'vid_url',
                     'image': 'url'
                 },
                 'Jail Break (Panel)': {
                     'type': 'activity',
                     'title': 'Jail Break',
                     'desc': 'Escape the bars...',
-                    'video': 'vid-url',
+                    'video': 'vid_url',
                     'image': 'url'
                 }
             }

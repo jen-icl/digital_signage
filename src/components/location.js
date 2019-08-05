@@ -10,7 +10,7 @@ class Location extends Component {
         const { selectedLocation } = this.state;
         const {data} = this.props;
         this.props.history.push({
-            pathname: `/store/${selectedLocation}`,
+            pathname: `/${selectedLocation}`,
             state: data
         });
     }
