@@ -1,11 +1,8 @@
 import Rebase from 're-base';
 import firebase from 'firebase';
+import firebaseConfig from './firebaseConfig';
 
-const firebaseApp = firebase.initializeApp({
-    apiKey: "",
-    authDomain: "",
-    databaseURL: "",
-});
+const firebaseApp = firebase.initializeApp(firebaseConfig);
 
 const base = Rebase.createClass(firebaseApp.database());
 
