@@ -17,12 +17,20 @@ class App extends Component {
             context: this
         }).then(data => {
             console.log('Fetch Success', data);
-            if(Object.keys(data).length !== 0 || data === 0){
-                console.log('stop')
-                return; //means data exists, do not execute action
+            if (Object.keys(data).length !== 0 || data === 0) {
+                if (action === this.addData) {
+                    console.log('stop add')
+                    return; //means data exists, do not execute add action
+                } else {
+                    return action(path); //means data exists, perform delete action
+                }
             } else {
-                console.log('perform action')
-                return action(path); //means data does not exist, perform action
+                if (action === this.addData) {
+                    console.log('perform add action')
+                    return action(path); //means data does not exist, perform add action
+                } else {
+                    return; //means data does not exist, do not execute delete action
+                }
             }
         }).catch(err => {
             console.log('Fetch Error', err);
@@ -41,6 +49,8 @@ class App extends Component {
         base.remove(`${path}`)
             .then(() => {
                 console.log('Removed from db check state', this.state)
+            }).catch(err => {
+                console.log('Delete data error' , err);
             });
     }
 
@@ -60,7 +70,7 @@ class App extends Component {
         return (
             <div>
                 <Switch>
-                    <Route exact path="/" render={props => <Location {...props} data={data} checkExist={this.checkExist} addData={this.addData} />} />
+                    <Route exact path="/" render={props => <Location {...props} data={data} checkExist={this.checkExist} addData={this.addData} deleteData={this.deleteData} />} />
                     <Route exact path="/:locationName" render={props => <Room {...props} data={data} checkExist={this.checkExist} addData={this.addData} />} />
                     <Route exact path="/:locationName/:roomName" render={props => <Board {...props} data={data} checkExist={this.checkExist} addData={this.addData} />} />
                     <Route exact path="/:locationName/:roomName/:boardName" render={props => <Panel {...props} data={data} />} />

@@ -1,16 +1,24 @@
 import React, { Component } from 'react';
 import AddForm from './addForm';
+import DeleteForm from './deleteForm';
 import '../css/location.css';
 
 class Location extends Component {
     state = {
         selectedLocation: '',
-        addModalOpen: false
+        addModalOpen: false,
+        deleteModalOpen: false
     }
 
     toggleAddModal = () => {
         this.setState({
             addModalOpen: !this.state.addModalOpen
+        });
+    }
+
+    toggleDeleteModal = () => {
+        this.setState({
+            deleteModalOpen: !this.state.deleteModalOpen
         });
     }
 
@@ -29,8 +37,8 @@ class Location extends Component {
     }
 
     render() {
-        const { addModalOpen } = this.state;
-        const { data, checkExist, addData } = this.props;
+        const { addModalOpen, deleteModalOpen } = this.state;
+        const { data, checkExist, addData, deleteData } = this.props;
         const locationList = Object.keys(data).map(key => (
             <option key={key} value={key}>{key}</option>
         ));
@@ -43,10 +51,12 @@ class Location extends Component {
                         <option disabled value="default">--</option>
                         {locationList}
                     </select>
-                    <button className="btn" type="submit">Visit Location →</button>
+                    <button type="submit">Visit Location →</button>
                 </form>
-                <button className="btn" onClick={this.toggleAddModal}>Add Location</button>
+                <button onClick={this.toggleAddModal}>Add Location</button>
+                <button onClick={this.toggleDeleteModal}>Delete Location</button>
                 {addModalOpen ? <AddForm addModalOpen={addModalOpen} title="Location" toggleAddModal={this.toggleAddModal} checkExist={checkExist} addData={addData} route="/" /> : null}
+                {deleteModalOpen ? <DeleteForm deleteModalOpen={deleteModalOpen} title="Location" toggleDeleteModal={this.toggleDeleteModal} checkExist={checkExist} deleteData={deleteData} data={data} route="/" /> : null}
             </div>
         );
     }
