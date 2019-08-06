@@ -46,7 +46,7 @@ class Location extends Component {
                     <button className="btn" type="submit">Visit Location →</button>
                 </form>
                 <button className="btn" onClick={this.toggleAddModal}>Add Location</button>
-                {addModalOpen ? <AddForm addModalOpen={addModalOpen} title="Location" toggleAddModal={this.toggleAddModal} checkExist={checkExist} addData={addData} /> : null}
+                {addModalOpen ? <AddForm addModalOpen={addModalOpen} title="Location" toggleAddModal={this.toggleAddModal} checkExist={checkExist} addData={addData} path="/" /> : null}
             </div>
         );
     }

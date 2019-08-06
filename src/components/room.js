@@ -1,6 +1,17 @@
 import React, { Component } from 'react';
+import AddForm from './addForm';
 
 class Room extends Component {
+    state = {
+        addModalOpen: false
+    }
+
+    toggleAddModal = () => {
+        this.setState({
+            addModalOpen: !this.state.addModalOpen
+        });
+    }
+
     goToRoom = selectedRoom => {
         const { location, data } = this.props;
         this.props.history.push({
@@ -25,7 +36,8 @@ class Room extends Component {
     }
 
     render() {
-        const { data } = this.props;
+        const { addModalOpen } = this.state;
+        const { data, checkExist, addData, match: {params} } = this.props;
         if (Object.keys(data).length === 0) {
             return null;
         }
@@ -33,6 +45,8 @@ class Room extends Component {
         return (
             <div>
                 {this.renderRoom()}
+                <button onClick={this.toggleAddModal}>Add Room</button>
+                {addModalOpen ? <AddForm addModalOpen={addModalOpen} toggleAddModal={this.toggleAddModal} title="Room" checkExist={checkExist} addData={addData} path={`/${params.locationName}`} /> : null}
             </div>
         );
     }

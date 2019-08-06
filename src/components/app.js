@@ -12,8 +12,8 @@ class App extends Component {
         data: {}
     };
 
-    checkExist = (path, action) => {
-        base.fetch(`/${path}`, {
+    checkExist = (action, path, newPath) => {
+        base.fetch(`${path}/${newPath}`, {
             context: this
         }).then(data => {
             console.log('Fetch Success', data);
@@ -22,15 +22,15 @@ class App extends Component {
                 return; //means data exists, do not execute action
             } else {
                 console.log('perform action')
-                return action(path); //means data does not exist, perform action
+                return action(path, newPath); //means data does not exist, perform action
             }
         }).catch(err => {
             console.log('Fetch Error', err);
         });
     }
 
-    addData = path => {
-        base.post(`/${path}`, {
+    addData = (path, newPath) => {
+        base.post(`${path}/${newPath}`, {
             data: 0
         }).then(() => {
             console.log('Added to db check state', this.state)
@@ -54,7 +54,7 @@ class App extends Component {
             <div>
                 <Switch>
                     <Route exact path="/" render={props => <Location {...props} data={data} checkExist={this.checkExist} addData={this.addData} />} />
-                    <Route exact path="/:locationName" render={props => <Room {...props} data={data} />} />
+                    <Route exact path="/:locationName" render={props => <Room {...props} data={data} checkExist={this.checkExist} addData={this.addData} />} />
                     <Route exact path="/:locationName/:roomName" render={props => <Board {...props} data={data} />} />
                     <Route exact path="/:locationName/:roomName/:boardName" render={props => <Panel {...props} data={data} />} />
                     <Route component={NotFound} />
