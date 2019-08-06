@@ -46,7 +46,7 @@ class Board extends Component {
             <div>
                 {this.renderBoard()}
                 <button onClick={this.toggleAddModal}>Add Board</button>
-                {addModalOpen ? <AddForm addModalOpen={addModalOpen} toggleAddModal={this.toggleAddModal} title="Board" checkExist={checkExist} addData={addData} path={`/${params.locationName}/${params.roomName}`} /> : null}
+                {addModalOpen ? <AddForm addModalOpen={addModalOpen} toggleAddModal={this.toggleAddModal} title="Board" checkExist={checkExist} addData={addData} route={`/${params.locationName}/${params.roomName}`} /> : null}
             </div>
         );
     }

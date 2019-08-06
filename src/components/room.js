@@ -46,7 +46,7 @@ class Room extends Component {
             <div>
                 {this.renderRoom()}
                 <button onClick={this.toggleAddModal}>Add Room</button>
-                {addModalOpen ? <AddForm addModalOpen={addModalOpen} toggleAddModal={this.toggleAddModal} title="Room" checkExist={checkExist} addData={addData} path={`/${params.locationName}`} /> : null}
+                {addModalOpen ? <AddForm addModalOpen={addModalOpen} toggleAddModal={this.toggleAddModal} title="Room" checkExist={checkExist} addData={addData} route={`/${params.locationName}`} /> : null}
             </div>
         );
     }

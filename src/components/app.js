@@ -12,8 +12,8 @@ class App extends Component {
         data: {}
     };
 
-    checkExist = (action, path, newPath) => {
-        base.fetch(`${path}/${newPath}`, {
+    checkExist = (action, path) => {
+        base.fetch(`${path}`, {
             context: this
         }).then(data => {
             console.log('Fetch Success', data);
@@ -22,19 +22,26 @@ class App extends Component {
                 return; //means data exists, do not execute action
             } else {
                 console.log('perform action')
-                return action(path, newPath); //means data does not exist, perform action
+                return action(path); //means data does not exist, perform action
             }
         }).catch(err => {
             console.log('Fetch Error', err);
         });
     }
 
-    addData = (path, newPath) => {
-        base.post(`${path}/${newPath}`, {
+    addData = path => {
+        base.post(`${path}`, {
             data: 0
         }).then(() => {
             console.log('Added to db check state', this.state)
         });
+    }
+
+    deleteData = path => {
+        base.remove(`${path}`)
+            .then(() => {
+                console.log('Removed from db check state', this.state)
+            });
     }
 
     componentDidMount() {
