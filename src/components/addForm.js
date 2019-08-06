@@ -9,8 +9,10 @@ class AddForm extends Component {
     handleSubmit = event => {
         event.preventDefault();
         const {name} = this.state;
-        const { checkExist, addData, path } = this.props;
-        checkExist(addData, path, name);
+        const { checkExist, addData, route, toggleAddModal } = this.props;
+        const path = `${route}/${name}`;
+        checkExist(addData, path);
+        toggleAddModal();
     }
 
     handleChange = event => {
@@ -20,11 +22,12 @@ class AddForm extends Component {
 
     render() {
         const { addModalOpen, title, toggleAddModal } = this.props;
+
         return (
             <Modal open={addModalOpen} >
                 <span onClick={toggleAddModal} className="close-popup">x</span>
-                <h2>{`Add ${title}`}</h2>
                 <form onSubmit={this.handleSubmit}>
+                    <h2>{`Add ${title}`}</h2>
                     <input id="name" name="name" type="text" label="name" onChange={this.handleChange} />
                     <button type="submit">Add</button>
                 </form>
