@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import AddForm from './addForm'
+import AddForm from './addForm';
+import '../css/location.css';
 
 class Location extends Component {
     state = {
@@ -35,16 +36,16 @@ class Location extends Component {
         ));
 
         return (
-            <div>
-                <form onSubmit={this.goToLocation}>
-                    <h2>Location</h2>
+            <div className="location-container">
+                <form className="location-form" onSubmit={this.goToLocation}>
+                    <h2>Pick a Location</h2>
                     <select name="location" onChange={this.handleChange} defaultValue="default">
-                        <option disabled value="default">Select a Location</option>
+                        <option disabled value="default">--</option>
                         {locationList}
                     </select>
-                    <button type="submit">Visit Location →</button>
+                    <button className="btn" type="submit">Visit Location →</button>
                 </form>
-                <button onClick={this.toggleAddModal}>Add Location</button>
+                <button className="btn" onClick={this.toggleAddModal}>Add Location</button>
                 {addModalOpen ? <AddForm addModalOpen={addModalOpen} title="Location" toggleAddModal={this.toggleAddModal} checkExist={checkExist} addData={addData} /> : null}
             </div>
         );
