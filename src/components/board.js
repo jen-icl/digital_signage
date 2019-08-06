@@ -1,6 +1,17 @@
 import React, { Component } from 'react';
+import AddForm from './addForm';
 
 class Board extends Component {
+    state = {
+        addModalOpen: false
+    }
+
+    toggleAddModal = () => {
+        this.setState({
+            addModalOpen: !this.state.addModalOpen
+        });
+    }
+
     goToBoard = selectedBoard => {
         const { location, location: { state } } = this.props;
         this.props.history.push({
@@ -25,7 +36,8 @@ class Board extends Component {
     }
 
     render() {
-        const { data } = this.props;
+        const { addModalOpen } = this.state;
+        const { data, checkExist, addData, match: {params} } = this.props;
         if (Object.keys(data).length === 0) {
             return null;
         }
@@ -33,6 +45,8 @@ class Board extends Component {
         return (
             <div>
                 {this.renderBoard()}
+                <button onClick={this.toggleAddModal}>Add Board</button>
+                {addModalOpen ? <AddForm addModalOpen={addModalOpen} toggleAddModal={this.toggleAddModal} title="Board" checkExist={checkExist} addData={addData} path={`/${params.locationName}/${params.roomName}`} /> : null}
             </div>
         );
     }
