@@ -9,8 +9,8 @@ class AddForm extends Component {
     handleSubmit = event => {
         event.preventDefault();
         const {name} = this.state;
-        const { checkExist, addData } = this.props;
-        checkExist(name, addData);
+        const { checkExist, addData, path } = this.props;
+        checkExist(addData, path, name);
     }
 
     handleChange = event => {
