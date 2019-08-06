@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
+import AddForm from './addForm'
 
 class Location extends Component {
     state = {
-        selectedLocation: ''
+        selectedLocation: '',
+        addModalOpen: false
+    }
+
+    toggleAddModal = () => {
+        this.setState({
+            addModalOpen: !this.state.addModalOpen
+        });
     }
 
     goToLocation = event => {
@@ -20,20 +28,25 @@ class Location extends Component {
     }
 
     render() {
-        const { data } = this.props;
+        const { addModalOpen } = this.state;
+        const { data, checkExist, addData } = this.props;
         const locationList = Object.keys(data).map(key => (
             <option key={key} value={key}>{key}</option>
         ));
 
         return (
-            <form onSubmit={this.goToLocation}>
-                <h2>Location</h2>
-                <select name="location" onChange={this.handleChange} defaultValue="default">
-                    <option disabled value="default">Select a Location</option>
-                    {locationList}
-                </select>
-                <button type="submit">Visit Location →</button>
-            </form>
+            <div>
+                <form onSubmit={this.goToLocation}>
+                    <h2>Location</h2>
+                    <select name="location" onChange={this.handleChange} defaultValue="default">
+                        <option disabled value="default">Select a Location</option>
+                        {locationList}
+                    </select>
+                    <button type="submit">Visit Location →</button>
+                </form>
+                <button onClick={this.toggleAddModal}>Add Location</button>
+                {addModalOpen ? <AddForm addModalOpen={addModalOpen} title="Location" toggleAddModal={this.toggleAddModal} checkExist={checkExist} addData={addData} /> : null}
+            </div>
         );
     }
 }
