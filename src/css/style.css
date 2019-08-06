@@ -1,0 +1,10 @@
+body {
+    margin: 0;
+    height: 100vh;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 0;
+    font-size: 36px;
+}
