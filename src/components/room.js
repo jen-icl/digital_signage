@@ -1,14 +1,22 @@
 import React, { Component } from 'react';
 import AddForm from './addForm';
+import DeleteForm from './deleteForm';
 
 class Room extends Component {
     state = {
-        addModalOpen: false
+        addModalOpen: false,
+        deleteModalOpen: false
     }
 
     toggleAddModal = () => {
         this.setState({
             addModalOpen: !this.state.addModalOpen
+        });
+    }
+
+    toggleDeleteModal = () => {
+        this.setState({
+            deleteModalOpen: !this.state.deleteModalOpen
         });
     }
 
@@ -36,8 +44,8 @@ class Room extends Component {
     }
 
     render() {
-        const { addModalOpen } = this.state;
-        const { data, checkExist, addData, match: {params} } = this.props;
+        const { addModalOpen, deleteModalOpen } = this.state;
+        const { data, checkExist, addData, deleteData, match: {params} } = this.props;
         if (Object.keys(data).length === 0) {
             return null;
         }
@@ -46,7 +54,9 @@ class Room extends Component {
             <div>
                 {this.renderRoom()}
                 <button onClick={this.toggleAddModal}>Add Room</button>
+                <button onClick={this.toggleDeleteModal}>Delete Room</button>
                 {addModalOpen ? <AddForm addModalOpen={addModalOpen} toggleAddModal={this.toggleAddModal} title="Room" checkExist={checkExist} addData={addData} route={`/${params.locationName}`} /> : null}
+                {deleteModalOpen ? <DeleteForm deleteModalOpen={deleteModalOpen} toggleDeleteModal={this.toggleDeleteModal} title="Room" checkExist={checkExist} deleteData={deleteData} data={data} route={`/${params.locationName}`} /> : null}
             </div>
         );
     }

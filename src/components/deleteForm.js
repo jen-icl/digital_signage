@@ -21,10 +21,17 @@ class DeleteForm extends Component {
     }
 
     render() {
-        const { deleteModalOpen, title, data, toggleDeleteModal } = this.props;
-        const list = Object.keys(data).map(key => (
-            <option key={key} value={key}>{key}</option>
-        ));
+        const { deleteModalOpen, title, data, route, toggleDeleteModal } = this.props;
+
+        const path = route.split('/').filter(Boolean);
+        let dataPath = data;
+        path.forEach(key => dataPath = dataPath[key]);
+        let list = [];
+        if (dataPath !== undefined) {
+            list = Object.keys(dataPath).map(key => (
+                <option key={key} value={key}>{key}</option>
+            ));
+        }
 
         return (
             <Modal open={deleteModalOpen} >
