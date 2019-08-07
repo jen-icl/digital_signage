@@ -25,9 +25,7 @@ class DeleteForm extends Component {
 
         const path = route.split('/').filter(Boolean);
         let dataPath = data;
-        for (let i = 0; i < path.length; i++) {
-            dataPath = dataPath[path[i]];
-        }
+        path.forEach(key => dataPath = dataPath[key]);
         let list = [];
         if (dataPath !== undefined) {
             list = Object.keys(dataPath).map(key => (
