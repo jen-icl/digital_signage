@@ -5,8 +5,8 @@
                 "Welcome (Panel)": {
                     "type": "text",
                     "title": "Welcome to Escape Room Irvine",
-                    "content": "Two Rooms, Two Challenges. Enjoy the fun!",
-                    "background_img": "url"
+                    "desc": "Two Rooms, Two Challenges. Enjoy the fun!",
+                    "image": "url"
                 },
                 "Activity List (Panel)": {
                     "type": "list",
@@ -24,8 +24,8 @@
                 "Welcome (Panel)": {
                     "type": "text",
                     "title": "Welcome (Company) to Escape Room",
-                    "content": "Two Rooms, Two Challenges. Enjoy the fun!",
-                    "background_img": "url"
+                    "desc": "Two Rooms, Two Challenges. Enjoy the fun!",
+                    "image": "url"
                 },
                 "Back to the Future (Panel)": {
                     "type": "activity",
@@ -79,8 +79,8 @@
                 "Welcome (Panel)": {
                     "type": "text",
                     "title": "Welcome to Escape Room Reno",
-                    "content": "Three Rooms, Three Challenges. Enjoy the fun!",
-                    "background_img": "url"
+                    "desc": "Three Rooms, Three Challenges. Enjoy the fun!",
+                    "image": "url"
                 },
                 "Activity List (Panel)": {
                     "type": "list",
@@ -98,8 +98,8 @@
                 "Welcome (Panel)": {
                     "type": "text",
                     "title": "Welcome to Escape Room",
-                    "content": "Two Rooms, Two Challenges. Enjoy the fun!",
-                    "background_img": "url"
+                    "desc": "Two Rooms, Two Challenges. Enjoy the fun!",
+                    "image": "url"
                 },
                 "Back to the Future (Panel)": {
                     "type": "activity",
