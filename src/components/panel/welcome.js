@@ -1,12 +1,12 @@
 import React from 'react';
 
 const WelcomePanel = props => {
-    const {title, content, background_img} = props;
+    const { title, desc, image } = props;
     return (
-        <div>
-            <div class="welcome_panel_background" style={`background-image: url(${background_img})`}></div>
+        <div className="welcome-panel">
+            <div className="background" style={`background-image: url(${image})`}></div>
             <h2>{title}</h2>
-            <p>{content}</p>
+            <p>{desc}</p>
         </div>
     );
 }
