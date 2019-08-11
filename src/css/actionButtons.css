@@ -1,0 +1,13 @@
+.action-buttons {
+    margin: 30px auto;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.action-buttons button {
+    margin: 30px auto;
+    margin-right: 30px;
+}
+
+.action-buttons button:last-child {
+    margin-right: 0;
+}
