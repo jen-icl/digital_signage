@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import base from '../base';
+import Header from './header';
 import Location from './location';
 import Room from './room';
 import Board from './board';
@@ -68,7 +69,8 @@ class App extends Component {
     render() {
         const {data} = this.state;
         return (
-            <div>
+            <Fragment>
+                <Header title="Digital Signage Admin"/>
                 <Switch>
                     <Route exact path="/" render={props => <Location {...props} data={data} checkExist={this.checkExist} addData={this.addData} deleteData={this.deleteData} />} />
                     <Route exact path="/:locationName" render={props => <Room {...props} data={data} checkExist={this.checkExist} addData={this.addData} deleteData={this.deleteData} />} />
@@ -76,7 +78,7 @@ class App extends Component {
                     <Route exact path="/:locationName/:roomName/:boardName" render={props => <Panel {...props} data={data} />} />
                     <Route component={NotFound} />
                 </Switch>
-            </div>
+            </Fragment>
         );
     }
 }
