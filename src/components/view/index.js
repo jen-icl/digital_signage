@@ -45,16 +45,14 @@ class View extends Component {
         let panelList = [];
         for (let i = 0; i < Object.keys(panelInfo).length; i++) {
             const content = Object.values(panelInfo)[i];
-            console.log('content', content)
-            let filteredContent = [];
             switch (content.type) {
                 case 'welcome':
                     panelList.push(<WelcomePanel key={content.title} panelInfo={content} />);
                     break;
-                // case 'list':
-                //     filteredContent = Object.values(content).filter(value => typeof value === 'object');
-                //     panelList.push(<ListPanel key={content.title} panelInfo={filteredContent} />);
-                //     break;
+                case 'list':
+                    const filteredContent = Object.values(content).filter(value => typeof value === 'object');
+                    panelList.push(<ListPanel key="List" panelInfo={filteredContent} />);
+                    break;
                 case 'activity':
                     panelList.push(<ActivityPanel key={content.title} panelInfo={content} />);
                     break;
