@@ -28,7 +28,7 @@ class AddForm extends Component {
                 <span onClick={toggleAddModal} className="close-popup">x</span>
                 <form onSubmit={this.handleSubmit}>
                     <h2>{`Add ${title}`}</h2>
-                    <input id="name" name="name" type="text" label="name" onChange={this.handleChange} />
+                    <input id="name" name="name" type="text" placeholder={`Enter a new ${title} name`} onChange={this.handleChange} />
                     <button type="submit">Add</button>
                 </form>
             </Modal >

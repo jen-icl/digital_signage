@@ -7,7 +7,6 @@
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 1;
     transition: 0.5s;
-    box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 9px 46px 8px rgba(0, 0, 0, 0.12), 0 11px 15px -7px rgba(0, 0, 0, 0.2);
 }
 
 .popup-container .popup-content {
@@ -17,7 +16,9 @@
     width: 80%;
     box-sizing: border-box;
     background-color: white;
-    padding: 24px;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 9px 46px 8px rgba(0, 0, 0, 0.12), 0 11px 15px -7px rgba(0, 0, 0, 0.2);
 }
 
 .popup-container .popup-content .popup-children {
@@ -25,9 +26,10 @@
 }
 
 .popup-container .popup-content .popup-children .close-popup {
-    float: right;
-    position: relative;
-    top: 2px;
-    right: 5px;
+    position: absolute;
+    top: 5px;
+    right: 10px;
     font-size: 0.8rem;
+    font-weight: 700;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
