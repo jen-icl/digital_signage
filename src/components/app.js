@@ -75,7 +75,7 @@ class App extends Component {
                     <Route exact path="/" render={props => <Location {...props} data={data} checkExist={this.checkExist} addData={this.addData} deleteData={this.deleteData} />} />
                     <Route exact path="/:locationName" render={props => <Room {...props} data={data} checkExist={this.checkExist} addData={this.addData} deleteData={this.deleteData} />} />
                     <Route exact path="/:locationName/:roomName" render={props => <Board {...props} data={data} checkExist={this.checkExist} addData={this.addData} deleteData={this.deleteData} />} />
-                    <Route exact path="/:locationName/:roomName/:boardName" render={props => <Panel {...props} data={data} />} />
+                    <Route exact path="/:locationName/:roomName/:boardName" render={props => <Panel {...props} data={data} checkExist={this.checkExist} deleteData={this.deleteData} />} />
                     <Route component={NotFound} />
                 </Switch>
             </Fragment>

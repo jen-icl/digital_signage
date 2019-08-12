@@ -48,7 +48,9 @@ button[type=submit] {
     margin-top: 30px;
 }
 
-input {
+input, textarea {
+    display: block;
+    margin: 15px auto;
     width: 50%;
     padding: 20px 30px;
     border-radius: 5px;
