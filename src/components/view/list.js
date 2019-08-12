@@ -3,13 +3,21 @@ import ListItem from './listItem';
 
 const ListPanel = props => {
     const {panelInfo} = props;
-    console.log('listpanel', props.panelInfo);
-    const listArray = Object.keys(panelInfo).map(key => (
-        <ListItem index={key} title={key.title} image={key.image} />
-    ));
+    const listArray = Object.values(panelInfo).map(({title, image}) => {
+        return <ListItem key={title} title={title} image={image} />;
+    });
 
     return (
-        {listArray}
+        <div className="view-panel list-panel">
+            <div className="children">
+                <h2>Activity List</h2>
+                <table>
+                    <tbody>
+                        {listArray}
+                    </tbody>
+                </table>
+            </div>
+        </div>
     );
 }
 
