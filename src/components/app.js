@@ -38,9 +38,9 @@ class App extends Component {
         });
     }
 
-    addData = path => {
+    addData = (path, content = 0) => {
         base.post(`${path}`, {
-            data: 0
+            data: content
         }).then(() => {
             console.log('Added to db check state', this.state)
         });

@@ -13,12 +13,12 @@ class AddActivityForm extends Component {
     }
 
     handleSubmit = event => {
-        // event.preventDefault();
-        // const { content } = this.state;
-        // const { addPanel, route, toggleAddModal } = this.props;
-        // const path = `${route}/${content.title`;
-        // addPanel(content, path);
-        // toggleAddModal('Activity');
+        event.preventDefault();
+        const { content } = this.state;
+        const { addData, route, toggleAddModal } = this.props;
+        const path = `${route}/${content.title}`;
+        addData(path, content);
+        toggleAddModal('Activity');
     }
 
     handleChange = event => {
