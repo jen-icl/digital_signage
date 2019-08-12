@@ -35,15 +35,6 @@
     width: calc(100vw - 60px - 20vh);
 }
 
-.view-container .view-content .list-panel {
-    background-image: url('https://images.pexels.com/photos/796606/pexels-photo-796606.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
-    position: fixed;
-    background-size: cover;
-    height: 100%;
-    width: 100%;
-    z-index: -1;
-}
-
 .view-container .view-content .list-panel table {
     margin: 0 auto;
     border: 1px solid black;
