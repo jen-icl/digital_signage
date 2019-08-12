@@ -35,11 +35,11 @@ class Board extends Component {
         const boardInfo = this.props.data[locationName][roomName];
 
         if (!boardInfo) {
-            return null;
+            return <li onClick={this.toggleAddModal}>Add a Board</li>;
         }
 
         const boardList = Object.keys(boardInfo).map(key => (
-            <button key={key} onClick={() => this.goToBoard(key)}>{key}</button>
+            <li key={key} onClick={() => this.goToBoard(key)}>{key}</li>
         ));
 
         return boardList;
@@ -54,7 +54,9 @@ class Board extends Component {
 
         return (
             <div className="board-container">
-                {this.renderBoard()}
+                <ul className="board-list">
+                    {this.renderBoard()}
+                </ul>
                 <ActionButtons component="Board" toggleAddModal={this.toggleAddModal} toggleDeleteModal={this.toggleDeleteModal} />
                 {addModalOpen ? <AddForm addModalOpen={addModalOpen} toggleAddModal={this.toggleAddModal} title="board" checkExist={checkExist} addData={addData} route={`/${params.locationName}/${params.roomName}`} /> : null}
                 {deleteModalOpen ? <DeleteForm deleteModalOpen={deleteModalOpen} toggleDeleteModal={this.toggleDeleteModal} title="board" checkExist={checkExist} deleteData={deleteData} data={data} route={`/${params.locationName}/${params.roomName}`} /> : null}

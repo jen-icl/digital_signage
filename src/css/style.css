@@ -32,14 +32,14 @@ button {
     font-weight: 600;
     color: rgb(0, 0, 0);
     background-color: none;
-    border: 1px solid rgb(170, 170, 170);
+    border: 1px solid rgb(71, 110, 158);
     transition: background-color 0.5s, color 0.5s;
     cursor: pointer;
 }
 
 button:hover, button:focus {
     color: #fff;
-    background-color: rgb(170, 170, 170);
+    background-color: rgb(71, 110, 158);
 }
 
 button[type=submit] {
@@ -49,9 +49,11 @@ button[type=submit] {
 }
 
 input {
-    line-height: 30px;
     width: 50%;
+    padding: 20px 30px;
     border-radius: 5px;
+    border: 1px solid rgb(71, 110, 158);
+    font-size: 16px;
 }
 
 select {
