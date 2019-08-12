@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+import Header from './header';
 import ActionButtons from './actionButtons';
 import AddForm from './addForm';
 import DeleteForm from './deleteForm';
@@ -53,14 +54,17 @@ class Room extends Component {
         }
 
         return (
-            <div className="room-container">
-                <ul className="room-list">
-                    {this.renderRoom()}
-                </ul>
-                <ActionButtons component="Room" toggleAddModal={this.toggleAddModal} toggleDeleteModal={this.toggleDeleteModal} />
-                {addModalOpen ? <AddForm addModalOpen={addModalOpen} toggleAddModal={this.toggleAddModal} title="room" checkExist={checkExist} addData={addData} route={`/${params.locationName}`} /> : null}
-                {deleteModalOpen ? <DeleteForm deleteModalOpen={deleteModalOpen} toggleDeleteModal={this.toggleDeleteModal} title="room" checkExist={checkExist} deleteData={deleteData} data={data} route={`/${params.locationName}`} /> : null}
-            </div>
+            <Fragment>
+                <Header />
+                <div className="room-container">
+                    <ul className="room-list">
+                        {this.renderRoom()}
+                    </ul>
+                    <ActionButtons component="Room" toggleAddModal={this.toggleAddModal} toggleDeleteModal={this.toggleDeleteModal} />
+                    {addModalOpen ? <AddForm addModalOpen={addModalOpen} toggleAddModal={this.toggleAddModal} title="room" checkExist={checkExist} addData={addData} route={`/${params.locationName}`} /> : null}
+                    {deleteModalOpen ? <DeleteForm deleteModalOpen={deleteModalOpen} toggleDeleteModal={this.toggleDeleteModal} title="room" checkExist={checkExist} deleteData={deleteData} data={data} route={`/${params.locationName}`} /> : null}
+                </div>
+            </Fragment>
         );
     }
 }

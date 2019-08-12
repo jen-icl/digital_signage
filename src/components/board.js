@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+import Header from './header';
 import ActionButtons from './actionButtons';
 import AddForm from './addForm';
 import DeleteForm from './deleteForm';
@@ -53,14 +54,17 @@ class Board extends Component {
         }
 
         return (
-            <div className="board-container">
-                <ul className="board-list">
-                    {this.renderBoard()}
-                </ul>
-                <ActionButtons component="Board" toggleAddModal={this.toggleAddModal} toggleDeleteModal={this.toggleDeleteModal} />
-                {addModalOpen ? <AddForm addModalOpen={addModalOpen} toggleAddModal={this.toggleAddModal} title="board" checkExist={checkExist} addData={addData} route={`/${params.locationName}/${params.roomName}`} /> : null}
-                {deleteModalOpen ? <DeleteForm deleteModalOpen={deleteModalOpen} toggleDeleteModal={this.toggleDeleteModal} title="board" checkExist={checkExist} deleteData={deleteData} data={data} route={`/${params.locationName}/${params.roomName}`} /> : null}
-            </div>
+            <Fragment>
+                <Header />
+                <div className="board-container">
+                    <ul className="board-list">
+                        {this.renderBoard()}
+                    </ul>
+                    <ActionButtons component="Board" toggleAddModal={this.toggleAddModal} toggleDeleteModal={this.toggleDeleteModal} />
+                    {addModalOpen ? <AddForm addModalOpen={addModalOpen} toggleAddModal={this.toggleAddModal} title="board" checkExist={checkExist} addData={addData} route={`/${params.locationName}/${params.roomName}`} /> : null}
+                    {deleteModalOpen ? <DeleteForm deleteModalOpen={deleteModalOpen} toggleDeleteModal={this.toggleDeleteModal} title="board" checkExist={checkExist} deleteData={deleteData} data={data} route={`/${params.locationName}/${params.roomName}`} /> : null}
+                </div>
+            </Fragment>
         );
     }
 }
