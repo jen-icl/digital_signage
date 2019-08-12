@@ -1,12 +1,14 @@
 import React from 'react';
 
 const WelcomePanel = props => {
-    const { title, desc, image } = props;
+    const { title, desc, image } = props.panelInfo;
     return (
         <div className="view-panel welcome-panel">
             <div className="background" style={{backgroundImage: `url(${image})`}}></div>
-            <h2>{title}</h2>
-            <p>{desc}</p>
+            <div className="children">
+                <h2>{title}</h2>
+                <p>{desc}</p>
+            </div>
         </div>
     );
 }

@@ -16,7 +16,7 @@
     text-align: center;
 }
 
-.view-container .view-content .view-panel .background{
+.view-container .view-content .view-panel .background {
     position: fixed;
     background-size: cover;
     height: 100%;
@@ -24,7 +24,7 @@
     z-index: -1;
 }
 
-.view-container .view-content .activity-panel .children {
+.view-container .view-content .view-panel .children {
     margin: 0 auto;
     position: relative;
     border-radius: 10px;
