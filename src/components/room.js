@@ -35,11 +35,11 @@ class Room extends Component {
         const roomInfo = this.props.data[locationName];
 
         if (!roomInfo) {
-            return null;
+            return <li onClick={this.toggleAddModal}>Add a Room</li>;
         }
 
         const roomList = Object.keys(roomInfo).map(key => (
-            <button key={key} onClick={() => this.goToRoom(key)}>{key}</button>
+            <li key={key} onClick={() => this.goToRoom(key)}>{key}</li>
         ));
 
         return roomList;
@@ -54,7 +54,9 @@ class Room extends Component {
 
         return (
             <div className="room-container">
-                {this.renderRoom()}
+                <ul className="room-list">
+                    {this.renderRoom()}
+                </ul>
                 <ActionButtons component="Room" toggleAddModal={this.toggleAddModal} toggleDeleteModal={this.toggleDeleteModal} />
                 {addModalOpen ? <AddForm addModalOpen={addModalOpen} toggleAddModal={this.toggleAddModal} title="room" checkExist={checkExist} addData={addData} route={`/${params.locationName}`} /> : null}
                 {deleteModalOpen ? <DeleteForm deleteModalOpen={deleteModalOpen} toggleDeleteModal={this.toggleDeleteModal} title="room" checkExist={checkExist} deleteData={deleteData} data={data} route={`/${params.locationName}`} /> : null}
