@@ -35,6 +35,14 @@ class Panel extends Component {
         // });
     }
 
+    goToView = () => {
+        const { location, location: { state } } = this.props;
+        this.props.history.push({
+            pathname: `/view${location.pathname}`,
+            state
+        });
+    }
+
     renderPanel = () => {
         const { locationName, roomName, boardName } = this.props.match.params;
         const panelInfo = this.props.data[locationName][roomName][boardName];
@@ -69,6 +77,7 @@ class Panel extends Component {
                         <button onClick={() => this.toggleAddModal('List')}>Add List Panel</button>
                         <button onClick={() => this.toggleAddModal('Activity')}>Add Activity Panel</button>
                         <button onClick={this.toggleDeleteModal}>Delete Panel</button>
+                        <button onClick={this.goToView}>Preview Entire Board</button>
                     </div>
                     {addWelcomeOpen ? <AddWelcomeForm addModalOpen={addWelcomeOpen} toggleAddModal={this.toggleAddModal} title="welcome" checkExist={checkExist} addData={addData} route={`/${params.locationName}/${params.roomName}/${params.boardName}`} /> : null}
                     {addListOpen ? <AddListForm addModalOpen={addListOpen} toggleAddModal={this.toggleAddModal} title="list" checkExist={checkExist} addData={addData} route={`/${params.locationName}/${params.roomName}/${params.boardName}`} /> : null}
