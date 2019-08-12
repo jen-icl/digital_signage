@@ -3,43 +3,43 @@
         "Lobby": {
             "Default (Board)": {
                 "Welcome (Panel)": {
-                    "type": "text",
+                    "type": "welcome",
                     "title": "Welcome to Escape Room Irvine",
                     "desc": "Two Rooms, Two Challenges. Enjoy the fun!",
-                    "image": "url"
+                    "image": "https://images.pexels.com/photos/354939/pexels-photo-354939.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
                 },
                 "Activity List (Panel)": {
                     "type": "list",
-                    "1": {
+                    "Back to the Future": {
                         "title": "Back to the Future",
-                        "image": "url"
+                        "image": "https://images.pexels.com/photos/269923/pexels-photo-269923.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
                     },
-                    "2": {
+                    "Jail Break": {
                         "title": "Jail Break",
-                        "image": "url"
+                        "image": "https://images.pexels.com/photos/1550131/pexels-photo-1550131.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
                     }
                 }
             },
             "Welcome Company (Board)": {
                 "Welcome (Panel)": {
-                    "type": "text",
+                    "type": "welcome",
                     "title": "Welcome (Company) to Escape Room",
                     "desc": "Two Rooms, Two Challenges. Enjoy the fun!",
-                    "image": "url"
+                    "image": "https://images.pexels.com/photos/354939/pexels-photo-354939.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
                 },
                 "Back to the Future (Panel)": {
                     "type": "activity",
                     "title": "Back to the Future",
                     "desc": "Travel through time to experience...",
-                    "video": "vid_url",
-                    "image": "url"
+                    "video": "https://www.youtube.com/embed/KdqZOV1X1Ng",
+                    "image": "https://images.pexels.com/photos/269923/pexels-photo-269923.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
                 },
                 "Jail Break (Panel)": {
                     "type": "activity",
                     "title": "Jail Break",
                     "desc": "Escape the bars...",
-                    "video": "vid_url",
-                    "image": "url"
+                    "video": "https://www.youtube.com/embed/KdqZOV1X1Ng",
+                    "image": "https://images.pexels.com/photos/1550131/pexels-photo-1550131.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
                 }
             }
         },
@@ -47,28 +47,28 @@
             "Default (Board)": {
                 "Activity List Panel": {
                     "type": "list",
-                    "1": {
+                    "Back to the Future": {
                         "title": "Back to the Future",
-                        "image": "url"
+                        "image": "https://images.pexels.com/photos/269923/pexels-photo-269923.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
                     },
-                    "2": {
+                    "Jail Break": {
                         "title": "Jail Break",
-                        "image": "url"
+                        "image": "https://images.pexels.com/photos/1550131/pexels-photo-1550131.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
                     }
                 },
                 "Back to the Future (Panel)": {
                     "type": "activity",
                     "title": "Back to the Future",
                     "desc": "Travel through time to experience...",
-                    "video": "vid_url",
-                    "image": "url"
+                    "video": "https://www.youtube.com/embed/KdqZOV1X1Ng",
+                    "image": "https://images.pexels.com/photos/269923/pexels-photo-269923.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
                 },
                 "Jail Break (Panel)": {
                     "type": "activity",
                     "title": "Jail Break",
                     "desc": "Escape the bars...",
-                    "video": "vid_url",
-                    "image": "url"
+                    "video": "https://www.youtube.com/embed/KdqZOV1X1Ng",
+                    "image": "https://images.pexels.com/photos/1550131/pexels-photo-1550131.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
                 }
             }
         }
@@ -77,43 +77,43 @@
         "Lobby": {
             "Default (Board)": {
                 "Welcome (Panel)": {
-                    "type": "text",
+                    "type": "welcome",
                     "title": "Welcome to Escape Room Reno",
                     "desc": "Three Rooms, Three Challenges. Enjoy the fun!",
-                    "image": "url"
+                    "image": "https://images.pexels.com/photos/354939/pexels-photo-354939.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
                 },
                 "Activity List (Panel)": {
                     "type": "list",
-                    "1": {
+                    "Back to the Future": {
                         "title": "Back to the Future",
-                        "image": "url"
+                        "image": "https://images.pexels.com/photos/269923/pexels-photo-269923.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
                     },
-                    "2": {
+                    "Jail Break": {
                         "title": "Jail Break",
-                        "image": "url"
+                        "image": "https://images.pexels.com/photos/1550131/pexels-photo-1550131.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
                     }
                 }
             },
             "Welcome Company (Board)": {
                 "Welcome (Panel)": {
-                    "type": "text",
+                    "type": "welcome",
                     "title": "Welcome to Escape Room",
                     "desc": "Two Rooms, Two Challenges. Enjoy the fun!",
-                    "image": "url"
+                    "image": "https://images.pexels.com/photos/354939/pexels-photo-354939.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
                 },
                 "Back to the Future (Panel)": {
                     "type": "activity",
                     "title": "Back to the Future",
                     "desc": "Travel through time to experience...",
-                    "video": "vid_url",
-                    "image": "url"
+                    "video": "https://www.youtube.com/embed/KdqZOV1X1Ng",
+                    "image": "https://images.pexels.com/photos/269923/pexels-photo-269923.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
                 },
                 "Jail Break (Panel)": {
                     "type": "activity",
                     "title": "Jail Break",
                     "desc": "Escape the bars...",
-                    "video": "vid_url",
-                    "image": "url"
+                    "video": "https://www.youtube.com/embed/KdqZOV1X1Ng",
+                    "image": "https://images.pexels.com/photos/1550131/pexels-photo-1550131.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
                 }
             }
         },
@@ -121,28 +121,28 @@
             "Default (Board)": {
                 "Activity List Panel": {
                     "type": "list",
-                    "1": {
+                    "Back to the Future": {
                         "title": "Back to the Future",
-                        "image": "url"
+                        "image": "https://images.pexels.com/photos/269923/pexels-photo-269923.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
                     },
-                    "2": {
+                    "Jail Break": {
                         "title": "Jail Break",
-                        "image": "url"
+                        "image": "https://images.pexels.com/photos/1550131/pexels-photo-1550131.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
                     }
                 },
                 "Back to the Future (Panel)": {
                     "type": "activity",
                     "title": "Back to the Future",
                     "desc": "Travel through time to experience...",
-                    "video": "vid_url",
-                    "image": "url"
+                    "video": "https://www.youtube.com/embed/KdqZOV1X1Ng",
+                    "image": "https://images.pexels.com/photos/269923/pexels-photo-269923.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
                 },
                 "Jail Break (Panel)": {
                     "type": "activity",
                     "title": "Jail Break",
                     "desc": "Escape the bars...",
-                    "video": "vid_url",
-                    "image": "url"
+                    "video": "https://www.youtube.com/embed/KdqZOV1X1Ng",
+                    "image": "https://images.pexels.com/photos/1550131/pexels-photo-1550131.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
                 }
             }
         }
