@@ -4,10 +4,5 @@
 }
 
 .action-buttons button {
-    margin: 30px auto;
-    margin-right: 30px;
-}
-
-.action-buttons button:last-child {
-    margin-right: 0;
+    margin: 30px 15px;
 }
