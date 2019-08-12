@@ -23,6 +23,7 @@
 
 .popup-container .popup-content .popup-children {
     width: 100%;
+    text-align: center;
 }
 
 .popup-container .popup-content .popup-children .close-popup {

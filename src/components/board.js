@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import ActionButtons from './actionButtons';
 import AddForm from './addForm';
 import DeleteForm from './deleteForm';
+import '../css/component.css';
 
 class Board extends Component {
     state = {
@@ -51,12 +53,11 @@ class Board extends Component {
         }
 
         return (
-            <div>
+            <div className="board-container">
                 {this.renderBoard()}
-                <button onClick={this.toggleAddModal}>Add Board</button>
-                <button onClick={this.toggleDeleteModal}>Delete Board</button>
-                {addModalOpen ? <AddForm addModalOpen={addModalOpen} toggleAddModal={this.toggleAddModal} title="Board" checkExist={checkExist} addData={addData} route={`/${params.locationName}/${params.roomName}`} /> : null}
-                {deleteModalOpen ? <DeleteForm deleteModalOpen={deleteModalOpen} toggleDeleteModal={this.toggleDeleteModal} title="Board" checkExist={checkExist} deleteData={deleteData} data={data} route={`/${params.locationName}/${params.roomName}`} /> : null}
+                <ActionButtons component="Board" toggleAddModal={this.toggleAddModal} toggleDeleteModal={this.toggleDeleteModal} />
+                {addModalOpen ? <AddForm addModalOpen={addModalOpen} toggleAddModal={this.toggleAddModal} title="board" checkExist={checkExist} addData={addData} route={`/${params.locationName}/${params.roomName}`} /> : null}
+                {deleteModalOpen ? <DeleteForm deleteModalOpen={deleteModalOpen} toggleDeleteModal={this.toggleDeleteModal} title="board" checkExist={checkExist} deleteData={deleteData} data={data} route={`/${params.locationName}/${params.roomName}`} /> : null}
             </div>
         );
     }

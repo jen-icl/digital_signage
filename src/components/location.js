@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ActionButtons from './actionButtons';
 import AddForm from './addForm';
 import DeleteForm from './deleteForm';
-import '../css/location.css';
+import '../css/component.css';
 
 class Location extends Component {
     state = {
@@ -56,7 +56,7 @@ class Location extends Component {
                 </form>
                 <ActionButtons component="Location" toggleAddModal={this.toggleAddModal} toggleDeleteModal={this.toggleDeleteModal} />
                 {addModalOpen ? <AddForm addModalOpen={addModalOpen} title="location" toggleAddModal={this.toggleAddModal} checkExist={checkExist} addData={addData} route="/" /> : null}
-                {deleteModalOpen ? <DeleteForm deleteModalOpen={deleteModalOpen} title="Location" toggleDeleteModal={this.toggleDeleteModal} checkExist={checkExist} deleteData={deleteData} data={data} route="/" /> : null}
+                {deleteModalOpen ? <DeleteForm deleteModalOpen={deleteModalOpen} title="location" toggleDeleteModal={this.toggleDeleteModal} checkExist={checkExist} deleteData={deleteData} data={data} route="/" /> : null}
             </div>
         );
     }
