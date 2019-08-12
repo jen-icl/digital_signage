@@ -11,12 +11,12 @@ class AddListForm extends Component {
     }
 
     handleSubmit = event => {
-        // event.preventDefault();
-        // const { content } = this.state;
-        // const { addPanel, route, toggleAddModal } = this.props;
-        // const path = `${route}/${content.title}`;
-        // addPanel(content, path);
-        // toggleAddModal('List');
+        event.preventDefault();
+        const { content } = this.state;
+        const { addData, route, toggleAddModal } = this.props;
+        const path = `${route}/${`Activity List`}`;
+        addData(path, content);
+        toggleAddModal('List');
     }
 
     handleChange = event => {

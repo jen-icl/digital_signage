@@ -12,12 +12,12 @@ class AddWelcomeForm extends Component {
     }
 
     handleSubmit = event => {
-        // event.preventDefault();
-        // const { content} = this.state;
-        // const { addPanel, route, toggleAddModal } = this.props;
-        // const path = `${route}/${content.title`;
-        // addPanel(content, path);
-        // toggleAddModal('Welcome');
+        event.preventDefault();
+        const { content} = this.state;
+        const { addData, route, toggleAddModal } = this.props;
+        const path = `${route}/${content.title}`;
+        addData(path, content);
+        toggleAddModal('Welcome');
     }
 
     handleChange = event => {
