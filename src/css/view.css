@@ -1,0 +1,41 @@
+.view-container {
+    overflow: hidden;
+}
+
+.view-container .view-content {
+    position: fixed;
+    white-space: nowrap;
+}
+
+.view-container .view-content .view-panel {
+    white-space: normal;
+    vertical-align: top;
+    height: 100vh;
+    width: 100vw;
+    display: inline-block;
+    text-align: center;
+}
+
+.view-container .view-content .view-panel .background{
+    position: fixed;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+}
+
+.view-container .view-content .activity-panel .children {
+    margin: 0 auto;
+    position: relative;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: rgb(255, 255, 255);
+    padding: 30px;
+    top: 10vh;
+    width: 90%;
+}
+
+.transition {
+    left: 0;
+    transition: left 1s ease-in-out;
+}

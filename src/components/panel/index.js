@@ -52,8 +52,6 @@ class Panel extends Component {
     render() {
         const { addWelcomeOpen, addListOpen, addActivityOpen, deleteModalOpen } = this.state;
         const { data, checkExist, addData, deleteData, match: { params } } = this.props;
-        console.log('Panel Props', this.props)
-        console.log('Panel State', this.state)
         if (Object.keys(data).length === 0) {
             return null;
         }
