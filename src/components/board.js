@@ -33,7 +33,7 @@ class Board extends Component {
 
     renderBoard = () => {
         const { locationName, roomName } = this.props.match.params;
-        const boardInfo = this.props.data[locationName][roomName];
+        const boardInfo = this.props.data['Store'][locationName][roomName];
 
         if (!boardInfo) {
             return <li onClick={this.toggleAddModal}>Add a Board</li>;
