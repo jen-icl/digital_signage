@@ -55,6 +55,8 @@ class Panel extends Component {
             <li key={key} onClick={() => this.goToPanel(key)}>{key}</li>
         ));
 
+        panelList.unshift(<li key="preview" className="preview" onClick={this.goToView}>Preview Entire Board</li>)
+
         return panelList;
     }
 
@@ -77,7 +79,6 @@ class Panel extends Component {
                         <button onClick={() => this.toggleAddModal('List')}>Add List Panel</button>
                         <button onClick={() => this.toggleAddModal('Activity')}>Add Activity Panel</button>
                         <button onClick={this.toggleDeleteModal}>Delete Panel</button>
-                        <button onClick={this.goToView}>Preview Entire Board</button>
                     </div>
                     {addWelcomeOpen ? <AddWelcomeForm addModalOpen={addWelcomeOpen} toggleAddModal={this.toggleAddModal} title="welcome" checkExist={checkExist} addData={addData} route={`/${params.locationName}/${params.roomName}/${params.boardName}`} /> : null}
                     {addListOpen ? <AddListForm addModalOpen={addListOpen} toggleAddModal={this.toggleAddModal} title="list" checkExist={checkExist} addData={addData} route={`/${params.locationName}/${params.roomName}/${params.boardName}`} /> : null}
