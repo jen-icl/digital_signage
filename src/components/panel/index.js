@@ -45,15 +45,24 @@ class Panel extends Component {
 
     renderPanel = () => {
         const { locationName, roomName, boardName } = this.props.match.params;
-        const panelInfo = this.props.data[locationName][roomName][boardName];
+        const panelInfo = this.props.data['Store'][locationName][roomName][boardName].panel;
 
         if (!panelInfo) {
             return <li>Add a Panel</li>;
         }
 
-        const panelList = Object.keys(panelInfo).map(key => (
-            <li key={key} onClick={() => this.goToPanel(key)}>{key}</li>
-        ));
+        const panelList = Object.keys(panelInfo).map(key => {
+            switch (key) {
+                case 'Activity':
+                    const revealActivity = panelInfo['Activity'].map(activity => {
+                        return <li key={activity} onClick={() => this.goToPanel(activity)}>{activity}</li>;
+                    });
+                    return revealActivity;
+                    break;
+                default:
+                    return <li key={key} onClick={() => this.goToPanel(key)}>{key}</li>;
+            }
+        });
 
         panelList.unshift(<li key="preview" className="preview" onClick={this.goToView}>Preview Entire Board</li>)
 
