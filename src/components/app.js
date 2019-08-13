@@ -68,6 +68,7 @@ class App extends Component {
 
     render() {
         const {data} = this.state;
+        console.log('app state', data)
         return (
             <Fragment>
                 <Switch>

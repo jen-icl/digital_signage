@@ -41,7 +41,12 @@ class Location extends Component {
     render() {
         const { addModalOpen, deleteModalOpen } = this.state;
         const { data, checkExist, addData, deleteData } = this.props;
-        const locationList = Object.keys(data).map(key => (
+        if (Object.keys(data).length === 0) {
+            return null;
+        }
+
+        const locationData = data['Store'];
+        const locationList = Object.keys(locationData).map(key => (
             <option key={key} value={key}>{key}</option>
         ));
 
