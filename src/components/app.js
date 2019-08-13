@@ -13,7 +13,7 @@ class App extends Component {
         data: {}
     };
 
-    checkExist = (action, path) => {
+    checkExist = (action, path, content = 0) => {
         base.fetch(`${path}`, {
             context: this
         }).then(data => {
@@ -28,7 +28,7 @@ class App extends Component {
             } else {
                 if (action === this.addData) {
                     console.log('perform add action')
-                    return action(path); //means data does not exist, perform add action
+                    return action(path, content); //means data does not exist, perform add action
                 } else {
                     return; //means data does not exist, do not execute delete action
                 }

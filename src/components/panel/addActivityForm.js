@@ -14,8 +14,16 @@ class AddActivityForm extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        const { content } = this.state;
+        let { content } = this.state;
         const { addData, route, toggleAddModal } = this.props;
+
+        //identify video id
+        let { video } = content;
+        video = `/${video}`;
+        const videoId = video.match(/.*(?:youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\/)([^#\&\?]*).*/)[1];
+        //redefine video url to embedded video url
+        content.video = `https://www.youtube.com/embed/${videoId}`;
+
         const path = `${route}/${content.title}`;
         addData(path, content);
         toggleAddModal('Activity');
