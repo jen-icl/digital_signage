@@ -33,7 +33,7 @@ class Room extends Component {
 
     renderRoom = () => {
         const { locationName } = this.props.match.params;
-        const roomInfo = this.props.data[locationName];
+        const roomInfo = this.props.data['Store'][locationName];
 
         if (!roomInfo) {
             return <li onClick={this.toggleAddModal}>Add a Room</li>;
