@@ -1,149 +1,188 @@
 {
-    "Irvine, CA": {
-        "Lobby": {
-            "Default (Board)": {
-                "Welcome (Panel)": {
-                    "type": "welcome",
-                    "title": "Welcome to Escape Room Irvine",
-                    "desc": "Two Rooms, Two Challenges. Enjoy the fun!",
-                    "image": "https://images.pexels.com/photos/354939/pexels-photo-354939.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+    "Store": {
+        "Irvine, CA": {
+            "Lobby": {
+                "Default": {
+                    "transition": true,
+                    "panel": {
+                        "Welcome": {
+                            "type": "welcome",
+                            "title": "Welcome to Escape Room Irvine",
+                            "desc": "Two Rooms, Two Challenges. Enjoy the fun!",
+                            "image": "https://images.pexels.com/photos/354939/pexels-photo-354939.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                        },
+                        "Activity List": {
+                            "type": "list",
+                            "list": [
+                                {
+                                    "title": "Back to the Future",
+                                    "image": "https://images.pexels.com/photos/269923/pexels-photo-269923.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                                },
+                                {
+                                    "title": "Jail Break",
+                                    "image": "https://images.pexels.com/photos/1550131/pexels-photo-1550131.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                                }
+                            ]
+                        }
+                    }
                 },
-                "Activity List (Panel)": {
-                    "type": "list",
-                    "Back to the Future": {
-                        "title": "Back to the Future",
-                        "image": "https://images.pexels.com/photos/269923/pexels-photo-269923.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                    },
-                    "Jail Break": {
-                        "title": "Jail Break",
-                        "image": "https://images.pexels.com/photos/1550131/pexels-photo-1550131.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                "Welcome Company": {
+                    "transition": true,
+                    "panel": {
+                        "Welcome": {
+                            "type": "welcome",
+                            "title": "Welcome (Company) to Escape Room",
+                            "desc": "Two Rooms, Two Challenges. Enjoy the fun!",
+                            "image": "https://images.pexels.com/photos/354939/pexels-photo-354939.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                        },
+                        "Activity": [
+                            "Back to the Future",
+                            "Jail Break"
+                        ]
                     }
                 }
             },
-            "Welcome Company (Board)": {
-                "Welcome (Panel)": {
-                    "type": "welcome",
-                    "title": "Welcome (Company) to Escape Room",
-                    "desc": "Two Rooms, Two Challenges. Enjoy the fun!",
-                    "image": "https://images.pexels.com/photos/354939/pexels-photo-354939.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                },
-                "Back to the Future (Panel)": {
-                    "type": "activity",
-                    "title": "Back to the Future",
-                    "desc": "Travel through time to experience...",
-                    "video": "https://www.youtube.com/embed/KdqZOV1X1Ng",
-                    "image": "https://images.pexels.com/photos/269923/pexels-photo-269923.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                },
-                "Jail Break (Panel)": {
-                    "type": "activity",
-                    "title": "Jail Break",
-                    "desc": "Escape the bars...",
-                    "video": "https://www.youtube.com/embed/KdqZOV1X1Ng",
-                    "image": "https://images.pexels.com/photos/1550131/pexels-photo-1550131.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+            "Classroom": {
+                "Default": {
+                    "transition": false,
+                    "panel": {
+                        "Activity List": {
+                            "type": "list",
+                            "list": [
+                                {
+                                    "title": "Back to the Future",
+                                    "image": "https://images.pexels.com/photos/269923/pexels-photo-269923.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                                },
+                                {
+                                    "title": "Jail Break",
+                                    "image": "https://images.pexels.com/photos/1550131/pexels-photo-1550131.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                                }
+                            ]
+                        },
+                        "Activity": [
+                            "Back to the Future",
+                            "Jail Break"
+                        ]
+                    }
                 }
             }
         },
-        "Classroom": {
-            "Default (Board)": {
-                "Activity List Panel": {
-                    "type": "list",
-                    "Back to the Future": {
-                        "title": "Back to the Future",
-                        "image": "https://images.pexels.com/photos/269923/pexels-photo-269923.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                    },
-                    "Jail Break": {
-                        "title": "Jail Break",
-                        "image": "https://images.pexels.com/photos/1550131/pexels-photo-1550131.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+        "Reno, CA": {
+            "Lobby": {
+                "Default": {
+                    "transition": true,
+                    "panel": {
+                        "Welcome": {
+                            "type": "welcome",
+                            "title": "Welcome to Escape Room Reno",
+                            "desc": "Three Rooms, Three Challenges. Enjoy the fun!",
+                            "image": "https://images.pexels.com/photos/354939/pexels-photo-354939.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                        },
+                        "Activity List": {
+                            "type": "list",
+                            "list": [
+                                {
+                                    "title": "Back to the Future",
+                                    "image": "https://images.pexels.com/photos/269923/pexels-photo-269923.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                                },
+                                {
+                                    "title": "Defuse a Bomb",
+                                    "image": "https://images.pexels.com/photos/60671/pexels-photo-60671.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+                                },
+                                {
+                                    "title": "Find a Cure",
+                                    "image": "https://images.pexels.com/photos/2280549/pexels-photo-2280549.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+                                }
+                            ]
+                        }
                     }
                 },
-                "Back to the Future (Panel)": {
-                    "type": "activity",
-                    "title": "Back to the Future",
-                    "desc": "Travel through time to experience...",
-                    "video": "https://www.youtube.com/embed/KdqZOV1X1Ng",
-                    "image": "https://images.pexels.com/photos/269923/pexels-photo-269923.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                },
-                "Jail Break (Panel)": {
-                    "type": "activity",
-                    "title": "Jail Break",
-                    "desc": "Escape the bars...",
-                    "video": "https://www.youtube.com/embed/KdqZOV1X1Ng",
-                    "image": "https://images.pexels.com/photos/1550131/pexels-photo-1550131.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                "Welcome Company": {
+                    "transition": true,
+                    "panel": {
+                        "Welcome": {
+                            "type": "welcome",
+                            "title": "Welcome to Escape Room",
+                            "desc": "Two Rooms, Two Challenges. Enjoy the fun!",
+                            "image": "https://images.pexels.com/photos/354939/pexels-photo-354939.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                        },
+                        "Activity": [
+                            "Back to the Future",
+                            "Defuse a Bomb",
+                            "Find a Cure"
+                        ]
+                    }
+                }
+            },
+            "Classroom": {
+                "Default": {
+                    "transition": false,
+                    "panel": {
+                        "Activity List": {
+                            "type": "list",
+                            "list": [
+                                {
+                                    "title": "Back to the Future",
+                                    "image": "https://images.pexels.com/photos/269923/pexels-photo-269923.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                                },
+                                {
+                                    "title": "Defuse a Bomb",
+                                    "image": "https://images.pexels.com/photos/60671/pexels-photo-60671.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+                                },
+                                {
+                                    "title": "Find a Cure",
+                                    "image": "https://images.pexels.com/photos/2280549/pexels-photo-2280549.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+                                }
+                            ]
+                        },
+                        "Activity": [
+                            "Back to the Future",
+                            "Defuse a Bomb",
+                            "Find a Cure"
+                        ]
+                    }
                 }
             }
         }
     },
-    "Reno, CA": {
-        "Lobby": {
-            "Default (Board)": {
-                "Welcome (Panel)": {
-                    "type": "welcome",
-                    "title": "Welcome to Escape Room Reno",
-                    "desc": "Three Rooms, Three Challenges. Enjoy the fun!",
-                    "image": "https://images.pexels.com/photos/354939/pexels-photo-354939.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                },
-                "Activity List (Panel)": {
-                    "type": "list",
-                    "Back to the Future": {
-                        "title": "Back to the Future",
-                        "image": "https://images.pexels.com/photos/269923/pexels-photo-269923.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                    },
-                    "Jail Break": {
-                        "title": "Jail Break",
-                        "image": "https://images.pexels.com/photos/1550131/pexels-photo-1550131.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                    }
-                }
+    "Activity": {
+        "Irvine, CA": {
+            "Back to the Future": {
+                "type": "activity",
+                "title": "Back to the Future",
+                "desc": "You are trapped in the mysterious laboratory, where it has been said, they study time travel. The door is closed. A lot of hidden clues await you. You wonder if they were able to make time travelling true… If you cannot find the key to open the exit, you will drop into the spatiotemporal distortion and not able to return to this world again. Will you be able to escape from the time travel lab?",
+                "video": "https://www.youtube.com/embed/KdqZOV1X1Ng",
+                "image": "https://images.pexels.com/photos/269923/pexels-photo-269923.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
             },
-            "Welcome Company (Board)": {
-                "Welcome (Panel)": {
-                    "type": "welcome",
-                    "title": "Welcome to Escape Room",
-                    "desc": "Two Rooms, Two Challenges. Enjoy the fun!",
-                    "image": "https://images.pexels.com/photos/354939/pexels-photo-354939.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                },
-                "Back to the Future (Panel)": {
-                    "type": "activity",
-                    "title": "Back to the Future",
-                    "desc": "Travel through time to experience...",
-                    "video": "https://www.youtube.com/embed/KdqZOV1X1Ng",
-                    "image": "https://images.pexels.com/photos/269923/pexels-photo-269923.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                },
-                "Jail Break (Panel)": {
-                    "type": "activity",
-                    "title": "Jail Break",
-                    "desc": "Escape the bars...",
-                    "video": "https://www.youtube.com/embed/KdqZOV1X1Ng",
-                    "image": "https://images.pexels.com/photos/1550131/pexels-photo-1550131.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                }
+            "Jail Break": {
+                "type": "activity",
+                "title": "Jail Break",
+                "desc": "Escape the bars... You are wrongfully accused of a crime and are locked in a jail cell. While the warden is quelling a jail riot, you have one hour to escape from your cell and through the warden’s office to freedom.",
+                "video": "https://www.youtube.com/embed/KdqZOV1X1Ng",
+                "image": "https://images.pexels.com/photos/1550131/pexels-photo-1550131.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
             }
         },
-        "Classroom": {
-            "Default (Board)": {
-                "Activity List Panel": {
-                    "type": "list",
-                    "Back to the Future": {
-                        "title": "Back to the Future",
-                        "image": "https://images.pexels.com/photos/269923/pexels-photo-269923.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                    },
-                    "Jail Break": {
-                        "title": "Jail Break",
-                        "image": "https://images.pexels.com/photos/1550131/pexels-photo-1550131.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                    }
-                },
-                "Back to the Future (Panel)": {
-                    "type": "activity",
-                    "title": "Back to the Future",
-                    "desc": "Travel through time to experience...",
-                    "video": "https://www.youtube.com/embed/KdqZOV1X1Ng",
-                    "image": "https://images.pexels.com/photos/269923/pexels-photo-269923.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                },
-                "Jail Break (Panel)": {
-                    "type": "activity",
-                    "title": "Jail Break",
-                    "desc": "Escape the bars...",
-                    "video": "https://www.youtube.com/embed/KdqZOV1X1Ng",
-                    "image": "https://images.pexels.com/photos/1550131/pexels-photo-1550131.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                }
+        "Reno, CA": {
+            "Back to the Future": {
+                "type": "activity",
+                "title": "Back to the Future",
+                "desc": "You are trapped in the mysterious laboratory, where it has been said, they study time travel. The door is closed. A lot of hidden clues await you. You wonder if they were able to make time travelling true… If you cannot find the key to open the exit, you will drop into the spatiotemporal distortion and not able to return to this world again. Will you be able to escape from the time travel lab?",
+                "video": "https://www.youtube.com/embed/KdqZOV1X1Ng",
+                "image": "https://images.pexels.com/photos/269923/pexels-photo-269923.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+            },
+            "Defuse a Bomb": {
+                "type": "activity",
+                "title": "Defuse a Bomb",
+                "desc": "You and your team are trapped in a room, and to make matters worse, there's a bomb! Figure out how to difuse the bomb by solving puzzles to get codes. If the codes are entered correctly the bomb is difused. This type of escape requires the ability to keep your cool under pressure while using reasoning, logic and teamwork. Of course there is no actual bomb, but the scenario and props make it seem real and creates an added dimention to solving the puzzle: Solve it in time or get blown to smithereens.",
+                "video": "https://www.youtube.com/embed/KdqZOV1X1Ng",
+                "image": "https://images.pexels.com/photos/60671/pexels-photo-60671.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+            },
+            "Find a Cure": {
+                "type": "activity",
+                "title": "Find a Cure",
+                "desc": "A virus has been released in to the population, or is about to be released. Your job is to find the cure from the clues left behind by the sinister scientist who created it.",
+                "video": "https://www.youtube.com/embed/KdqZOV1X1Ng",
+                "image": "https://images.pexels.com/photos/2280549/pexels-photo-2280549.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
             }
         }
     }
