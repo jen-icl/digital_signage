@@ -2,32 +2,22 @@ import React, { Component } from 'react';
 import Modal from '../../general/modal';
 
 class AddListForm extends Component {
-    state = {
-        content: {
-            type: 'list',
-            title: '',
-            image: ''
-        }
-    }
-
     handleSubmit = event => {
         event.preventDefault();
-        const { content } = this.state;
-        const { addData, route, toggleAddModal } = this.props;
-        const path = `${route}/${`Activity List`}`;
-        addData(path, content);
-        toggleAddModal('List');
-    }
+        const { data, locationName, roomName, boardName, addData, toggleAddModal } = this.props;
 
-    handleChange = event => {
-        const { content } = this.state;
-        const { name, value } = event.currentTarget
-        this.setState({
-            content: {
-                ...content,
-                [name]: value
-            }
-        });
+        const activityData = data['Activity'][locationName];
+        const list = Object.values(activityData).map(value => (
+                { title: value.title, image: value.image }
+            ));
+        const content = {
+            type: 'list',
+            list
+        };
+
+        const panelPath = `/Store/${locationName}/${roomName}/${boardName}/panel/${`Activity List`}`;
+        addData(panelPath, content);
+        toggleAddModal('List');
     }
 
     render() {
