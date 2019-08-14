@@ -95,10 +95,16 @@ class AddActivityForm extends Component {
         if(activityData !== undefined && Object.keys(activityData).length !== 0) {
             const pathToPanel = data['Store'][locationName][roomName][boardName].panel
             const hasActivity = pathToPanel.hasOwnProperty('Activity');
-            const activityPanelList = hasActivity && pathToPanel['Activity'];
+            const currentActivityPanelList = hasActivity && pathToPanel['Activity'];
             activityList = Object.keys(activityData).map(key => {
-                if(activityPanelList && activityPanelList.indexOf(key) === -1) {
+                if(pathToPanel === 0) {
+                    //return all available activities if panel is empty
                     return <option key={key} value={key}>{key}</option>;
+                } else if (currentActivityPanelList && currentActivityPanelList.indexOf(key) === -1) {
+                    //return filter for non-duplicating activities if /panel/Activity is present
+                    return <option key={key} value={key}>{key}</option>;
+                } else {
+                    return null;
                 }
             });
         }

@@ -15,7 +15,7 @@
     left: 10%;
     width: 80%;
     max-height: 80vh;
-    overflow-y: scroll;
+    overflow-y: auto;
     box-sizing: border-box;
     background-color: white;
     padding: 30px;

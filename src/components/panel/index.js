@@ -58,7 +58,6 @@ class Panel extends Component {
                         return <li key={activity} onClick={() => this.goToPanel(activity)}>{activity}</li>;
                     });
                     return revealActivity;
-                    break;
                 default:
                     return <li key={key} onClick={() => this.goToPanel(key)}>{key}</li>;
             }
