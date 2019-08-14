@@ -31,15 +31,24 @@ class AddListForm extends Component {
     }
 
     render() {
-        const { addModalOpen, title, toggleAddModal } = this.props;
+        const { data, locationName, addModalOpen, title, toggleAddModal } = this.props;
+
+        if (Object.keys(data).length === 0) {
+            return null;
+        }
+
+        const activityList = Object.keys(data['Activity'][locationName]).map(key => (
+            <li key={key}>{key}</li>
+        ));
 
         return (
             <Modal open={addModalOpen} >
                 <span onClick={() => toggleAddModal('List')} className="close-popup">x</span>
                 <form onSubmit={this.handleSubmit}>
-                    <h2>{`Add ${title} Panel`}</h2>
-                    <input id="title" name="title" type="text" placeholder={`Enter a ${title} title`} onChange={this.handleChange} />
-                    <input id="image" name="image" type="text" placeholder={`Enter a ${title} image url`} onChange={this.handleChange} />
+                    <h2>{`Create ${title} Panel from Location Activities`}</h2>
+                    <ul className="activity-list">
+                        {activityList}
+                    </ul>
                     <button type="submit">Create</button>
                 </form>
             </Modal >
