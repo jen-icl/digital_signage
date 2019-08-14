@@ -97,7 +97,7 @@ class AddActivityForm extends Component {
             const hasActivity = pathToPanel.hasOwnProperty('Activity');
             const currentActivityPanelList = hasActivity && pathToPanel['Activity'];
             activityList = Object.keys(activityData).map(key => {
-                if(pathToPanel === 0) {
+                if(pathToPanel === 0 || !hasActivity) {
                     //return all available activities if panel is empty
                     return <option key={key} value={key}>{key}</option>;
                 } else if (currentActivityPanelList && currentActivityPanelList.indexOf(key) === -1) {

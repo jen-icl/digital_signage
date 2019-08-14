@@ -10,10 +10,7 @@ class AddListForm extends Component {
         const list = Object.values(activityData).map(value => (
                 { title: value.title, image: value.image }
             ));
-        const content = {
-            type: 'list',
-            list
-        };
+        const content = list;
 
         const panelPath = `/Store/${locationName}/${roomName}/${boardName}/panel/${`Activity List`}`;
         addData(panelPath, content);

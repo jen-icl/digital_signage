@@ -11,19 +11,16 @@
                             "desc": "Two Rooms, Two Challenges. Enjoy the fun!",
                             "image": "https://images.pexels.com/photos/354939/pexels-photo-354939.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
                         },
-                        "Activity List": {
-                            "type": "list",
-                            "list": [
-                                {
-                                    "title": "Back to the Future",
-                                    "image": "https://images.pexels.com/photos/269923/pexels-photo-269923.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                                },
-                                {
-                                    "title": "Jail Break",
-                                    "image": "https://images.pexels.com/photos/1550131/pexels-photo-1550131.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                                }
-                            ]
-                        }
+                        "Activity List": [
+                            {
+                                "title": "Back to the Future",
+                                "image": "https://images.pexels.com/photos/269923/pexels-photo-269923.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                            },
+                            {
+                                "title": "Jail Break",
+                                "image": "https://images.pexels.com/photos/1550131/pexels-photo-1550131.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                            }
+                        ]
                     }
                 },
                 "Welcome Company": {
@@ -46,19 +43,16 @@
                 "Default": {
                     "transition": false,
                     "panel": {
-                        "Activity List": {
-                            "type": "list",
-                            "list": [
-                                {
-                                    "title": "Back to the Future",
-                                    "image": "https://images.pexels.com/photos/269923/pexels-photo-269923.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                                },
-                                {
-                                    "title": "Jail Break",
-                                    "image": "https://images.pexels.com/photos/1550131/pexels-photo-1550131.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                                }
-                            ]
-                        },
+                        "Activity List": [
+                            {
+                                "title": "Back to the Future",
+                                "image": "https://images.pexels.com/photos/269923/pexels-photo-269923.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                            },
+                            {
+                                "title": "Jail Break",
+                                "image": "https://images.pexels.com/photos/1550131/pexels-photo-1550131.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                            }
+                        ],
                         "Activity": [
                             "Back to the Future",
                             "Jail Break"
@@ -78,23 +72,20 @@
                             "desc": "Three Rooms, Three Challenges. Enjoy the fun!",
                             "image": "https://images.pexels.com/photos/354939/pexels-photo-354939.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
                         },
-                        "Activity List": {
-                            "type": "list",
-                            "list": [
-                                {
-                                    "title": "Back to the Future",
-                                    "image": "https://images.pexels.com/photos/269923/pexels-photo-269923.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                                },
-                                {
-                                    "title": "Defuse a Bomb",
-                                    "image": "https://images.pexels.com/photos/60671/pexels-photo-60671.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
-                                },
-                                {
-                                    "title": "Find a Cure",
-                                    "image": "https://images.pexels.com/photos/2280549/pexels-photo-2280549.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
-                                }
-                            ]
-                        }
+                        "Activity List": [
+                            {
+                                "title": "Back to the Future",
+                                "image": "https://images.pexels.com/photos/269923/pexels-photo-269923.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                            },
+                            {
+                                "title": "Defuse a Bomb",
+                                "image": "https://images.pexels.com/photos/60671/pexels-photo-60671.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+                            },
+                            {
+                                "title": "Find a Cure",
+                                "image": "https://images.pexels.com/photos/2280549/pexels-photo-2280549.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+                            }
+                        ]
                     }
                 },
                 "Welcome Company": {
@@ -118,23 +109,20 @@
                 "Default": {
                     "transition": false,
                     "panel": {
-                        "Activity List": {
-                            "type": "list",
-                            "list": [
-                                {
-                                    "title": "Back to the Future",
-                                    "image": "https://images.pexels.com/photos/269923/pexels-photo-269923.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                                },
-                                {
-                                    "title": "Defuse a Bomb",
-                                    "image": "https://images.pexels.com/photos/60671/pexels-photo-60671.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
-                                },
-                                {
-                                    "title": "Find a Cure",
-                                    "image": "https://images.pexels.com/photos/2280549/pexels-photo-2280549.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
-                                }
-                            ]
-                        },
+                        "Activity List": [
+                            {
+                                "title": "Back to the Future",
+                                "image": "https://images.pexels.com/photos/269923/pexels-photo-269923.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                            },
+                            {
+                                "title": "Defuse a Bomb",
+                                "image": "https://images.pexels.com/photos/60671/pexels-photo-60671.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+                            },
+                            {
+                                "title": "Find a Cure",
+                                "image": "https://images.pexels.com/photos/2280549/pexels-photo-2280549.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+                            }
+                        ],
                         "Activity": [
                             "Back to the Future",
                             "Defuse a Bomb",

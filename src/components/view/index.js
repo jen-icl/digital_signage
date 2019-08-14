@@ -39,25 +39,29 @@ class View extends Component {
     }
 
     renderViewPanel = () => {
-        const { locationName, roomName, boardName } = this.props.match.params;
-        const panelInfo = this.props.data[locationName][roomName][boardName];
+        const { data, match: { params } } = this.props;
+        const { locationName, roomName, boardName } = params;
+        const panelInfo = data['Store'][locationName][roomName][boardName].panel;
+        const activityInfo = data['Activity'][locationName];
 
         let panelList = [];
         for (let i = 0; i < Object.keys(panelInfo).length; i++) {
-            const content = Object.values(panelInfo)[i];
-            switch (content.type) {
-                case 'welcome':
-                    panelList.push(<WelcomePanel key={content.title} panelInfo={content} />);
-                    break;
-                case 'list':
-                    const filteredContent = Object.values(content).filter(value => typeof value === 'object');
-                    panelList.push(<ListPanel key="List" panelInfo={filteredContent} />);
-                    break;
-                case 'activity':
-                    panelList.push(<ActivityPanel key={content.title} panelInfo={content} />);
-                    break;
-                default:
-                    break;
+            const key = Object.keys(panelInfo)[i];
+            const panelData = Object.values(panelInfo)[i];
+            console.log('key', key)
+            console.log('panelData', panelData)
+
+            if (panelData.type === 'welcome') {
+                //Welcome Panel
+                panelList.push(<WelcomePanel key={panelData.title} panelInfo={panelData} />);
+            } else if (key === 'Activity List') {
+                //List Panel
+                panelList.push(<ListPanel key="list" panelInfo={panelData} />);
+            } else if (key === 'Activity') {
+                //Activity Panel
+                panelData.map(activityName => (
+                    panelList.push(<ActivityPanel key={activityName} panelInfo={activityInfo[activityName]} />)
+                ));
             }
         }
 
@@ -68,7 +72,7 @@ class View extends Component {
 
     render() {
         const { data } = this.props;
-        const {slideFrame} = this.state;
+        const { slideFrame } = this.state;
         if (Object.keys(data).length === 0) {
             return null;
         }
