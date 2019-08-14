@@ -14,9 +14,9 @@ class AddWelcomeForm extends Component {
     handleSubmit = event => {
         event.preventDefault();
         const { content} = this.state;
-        const { addData, route, toggleAddModal } = this.props;
+        const { checkExist, addData, route, toggleAddModal } = this.props;
         const path = `${route}/${content.title}`;
-        addData(path, content);
+        checkExist(addData, path, content);
         toggleAddModal('Welcome');
     }
 
@@ -41,7 +41,7 @@ class AddWelcomeForm extends Component {
                     <h2>{`Add ${title} Panel`}</h2>
                     <input id="title" name="title" type="text" placeholder={`Enter a ${title} title`} onChange={this.handleChange} />
                     <input id="image" name="image" type="text" placeholder={`Enter a ${title} image url`} onChange={this.handleChange} />
-                    <textarea id="desc" name="desc" placeholder={`Enter a ${title} description`}></textarea>
+                    <textarea id="desc" name="desc" placeholder={`Enter a ${title} description`} onChange={this.handleChange}></textarea>
                     <button type="submit">Create</button>
                 </form>
             </Modal >

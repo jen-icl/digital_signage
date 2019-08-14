@@ -94,7 +94,7 @@ class Panel extends Component {
                         <button onClick={() => this.toggleAddModal('Activity')}>Add Activity Panel</button>
                         <button onClick={this.toggleDeleteModal}>Delete Panel</button>
                     </div>
-                    {addWelcomeOpen ? <AddWelcomeForm addModalOpen={addWelcomeOpen} toggleAddModal={this.toggleAddModal} title="welcome" checkExist={checkExist} addData={addData} route={`/${params.locationName}/${params.roomName}/${params.boardName}`} /> : null}
+                    {addWelcomeOpen ? <AddWelcomeForm addModalOpen={addWelcomeOpen} toggleAddModal={this.toggleAddModal} title="welcome" checkExist={checkExist} addData={addData} route={`/Store/${params.locationName}/${params.roomName}/${params.boardName}/panel`} /> : null}
                     {addListOpen ? <AddListForm addModalOpen={addListOpen} toggleAddModal={this.toggleAddModal} title="list" data={data} checkExist={checkExist} addData={addData} route={`/${params.locationName}/${params.roomName}/${params.boardName}`} /> : null}
                     {addActivityOpen ? <AddActivityForm addModalOpen={addActivityOpen} toggleAddModal={this.toggleAddModal} title="activity" data={data} checkExist={checkExist} addData={addData} route={`/${params.locationName}/${params.roomName}/${params.boardName}`} /> : null}
                     {deleteModalOpen ? <DeleteForm deleteModalOpen={deleteModalOpen} toggleDeleteModal={this.toggleDeleteModal} title="panel" checkExist={checkExist} deleteData={deleteData} data={data} route={`/${params.locationName}/${params.roomName}/${params.boardName}`} /> : null}
