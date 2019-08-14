@@ -76,10 +76,15 @@ class Panel extends Component {
             return null;
         }
 
+        //const transitionStatus = data['Store'][params.locationName][params.roomName][params.boardName].transition;
+
         return (
             <Fragment>
                 <Header />
                 <div className="panel-container">
+                    {/* <p className="transitionStatus">
+                        {`Transition: ${transitionStatus ? 'On' : 'Off'}`}
+                    </p> */}
                     <ul className="panel-list">
                         {this.renderPanel()}
                     </ul>
