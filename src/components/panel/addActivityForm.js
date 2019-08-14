@@ -10,7 +10,7 @@ class AddActivityForm extends Component {
             image: '',
             video: ''
         },
-        existingActivity: [],
+        existingActivity: ['default'],
         newActivityForm: false
     }
 
@@ -19,16 +19,8 @@ class AddActivityForm extends Component {
         let { newActivityForm, content, existingActivity } = this.state;
         const { data, checkExist, addData, toggleAddModal, locationName, roomName, boardName } = this.props;
 
-        const activityPanelList = data['Store'][locationName][roomName][boardName].panel['Activity'];
-        if (activityPanelList === undefined) {
-            //no available Activity Panel, create new Activity key with the new activity array
-            const panelPath = `/Store/${locationName}/${roomName}/${boardName}/panel/Activity`;
-            addData(panelPath, existingActivity);
-        } else {
-            const panelPath = `/Store/${locationName}/${roomName}/${boardName}/panel/Activity`;
-            const newActivityList = activityPanelList.concat(existingActivity);
-            addData(panelPath, newActivityList);
-        }
+        const hasActivity = data['Store'][locationName][roomName][boardName].panel.hasOwnProperty('Activity');
+        const panelPath = `/Store/${locationName}/${roomName}/${boardName}/panel/Activity`;
 
         if (newActivityForm) {
             //identify video id and redefine video url to embedded video url
@@ -37,15 +29,33 @@ class AddActivityForm extends Component {
             const videoId = video.match(/.*(?:youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\/)([^#\&\?]*).*/)[1];
             content.video = `https://www.youtube.com/embed/${videoId}`;
 
-            const activityPath = `/Activity${locationName}/${content.title}`;
+            const activityPath = `/Activity/${locationName}/${content.title}`;
             checkExist(addData, activityPath, content);
+
+            if (hasActivity) {
+                const activityPanelList = data['Store'][locationName][roomName][boardName].panel['Activity'];
+                activityPanelList.push(content.title);
+                addData(panelPath, activityPanelList);
+            } else {
+                //no available Activity Panel, create new Activity key with the new activity array
+                checkExist(addData, panelPath, [content.title]);
+            }
+        } else {
+            if (hasActivity) {
+                const activityPanelList = data['Store'][locationName][roomName][boardName].panel['Activity'];
+                const populateActivityList = activityPanelList.concat(existingActivity);
+                addData(panelPath, populateActivityList);
+            } else {
+                //no available Activity Panel, create new Activity key with the new activity array
+                checkExist(addData, panelPath, existingActivity);
+            }
         }
 
         toggleAddModal('Activity');
     }
 
     handleChange = event => {
-        const { newActivityForm, content, existingActivity } = this.state;
+        const { newActivityForm, content } = this.state;
         const { name, value } = event.currentTarget;
 
         if (newActivityForm) {
@@ -60,6 +70,7 @@ class AddActivityForm extends Component {
                 existingActivity: [value]
             });
         }
+        console.log('form state', this.state)
     }
 
     toggleForm = () => {
@@ -69,15 +80,25 @@ class AddActivityForm extends Component {
     }
 
     render() {
-        const { newActivityForm } = this.state;
-        const { data, locationName, addModalOpen, title, toggleAddModal } = this.props;
+        const { newActivityForm, existingActivity } = this.state;
+        const { data, locationName, roomName, boardName, addModalOpen, title, toggleAddModal } = this.props;
+
+        if (Object.keys(data).length === 0) {
+            return null;
+        }
 
         const activityData = data['Activity'][locationName];
         let activityList = [];
-        if(Object.keys(activityData).length !== 0) {
-            activityList = Object.keys(activityData).map(key => (
-                <option key={key} value={key}>{key}</option>
-            ));
+        if(activityData !== undefined && Object.keys(activityData).length !== 0) {
+            const hasActivity = data['Store'][locationName][roomName][boardName].panel.hasOwnProperty('Activity');
+            if (hasActivity) {
+                const activityPanelList = data['Store'][locationName][roomName][boardName].panel['Activity'];
+                activityList = Object.keys(activityData).map(key => {
+                    if(activityPanelList.indexOf(key) === -1){
+                        return <option key={key} value={key}>{key}</option>;
+                    }
+                });
+            }
         }
 
         return (
@@ -90,7 +111,7 @@ class AddActivityForm extends Component {
                         <form onSubmit={this.handleSubmit}>
                             <input id="title" name="title" type="text" placeholder={`Enter an ${title} title`} onChange={this.handleChange} />
                             <input id="image" name="image" type="text" placeholder={`Enter an ${title} image url`} onChange={this.handleChange} />
-                            <textarea id="desc" name="desc" placeholder={`Enter an ${title} description`}></textarea>
+                            <textarea id="desc" name="desc" placeholder={`Enter an ${title} description`} onChange={this.handleChange}></textarea>
                             <input id="video" name="video" type="text" placeholder={`Enter an ${title} video url`} onChange={this.handleChange} />
                             <button type="submit">Create</button>
                         </form>
@@ -104,7 +125,7 @@ class AddActivityForm extends Component {
                                 <option disabled value="default">--</option>
                                 {activityList}
                             </select>
-                            <button type="submit">Create</button>
+                            {existingActivity[0] !== 'default' ? <button type="submit">Create</button> : <button disabled type="submit">Create</button> }
                         </form>
                     </Fragment>
                 }

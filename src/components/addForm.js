@@ -15,7 +15,7 @@ class AddForm extends Component {
         const path = `${route}/${name}`;
 
         if(title === 'board') {
-            checkExist(addData, path, {transition});
+            checkExist(addData, path, {transition, panel: 0});
         } else {
             checkExist(addData, path);
         }
