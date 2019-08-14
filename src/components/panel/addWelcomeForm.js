@@ -14,8 +14,8 @@ class AddWelcomeForm extends Component {
     handleSubmit = event => {
         event.preventDefault();
         const { content} = this.state;
-        const { checkExist, addData, route, toggleAddModal } = this.props;
-        const path = `${route}/${content.title}`;
+        const { checkExist, addData, toggleAddModal, locationName, roomName, boardName } = this.props;
+        const path = `/Store/${locationName}/${roomName}/${boardName}/panel/${content.title}`;
         checkExist(addData, path, content);
         toggleAddModal('Welcome');
     }
