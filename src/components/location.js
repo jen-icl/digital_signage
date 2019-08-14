@@ -63,8 +63,8 @@ class Location extends Component {
                         <button type="submit">Visit Location →</button>
                     </form>
                     <ActionButtons component="Location" toggleAddModal={this.toggleAddModal} toggleDeleteModal={this.toggleDeleteModal} />
-                    {addModalOpen ? <AddForm addModalOpen={addModalOpen} title="location" toggleAddModal={this.toggleAddModal} checkExist={checkExist} addData={addData} route="/" /> : null}
-                    {deleteModalOpen ? <DeleteForm deleteModalOpen={deleteModalOpen} title="location" toggleDeleteModal={this.toggleDeleteModal} checkExist={checkExist} deleteData={deleteData} data={data} route="/" /> : null}
+                    {addModalOpen ? <AddForm addModalOpen={addModalOpen} title="location" toggleAddModal={this.toggleAddModal} checkExist={checkExist} addData={addData} route="/Store" /> : null}
+                    {deleteModalOpen ? <DeleteForm deleteModalOpen={deleteModalOpen} title="location" toggleDeleteModal={this.toggleDeleteModal} checkExist={checkExist} deleteData={deleteData} data={data} route="/Store" /> : null}
                 </div>
             </Fragment>
         );

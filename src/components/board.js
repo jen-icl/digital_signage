@@ -61,8 +61,8 @@ class Board extends Component {
                         {this.renderBoard()}
                     </ul>
                     <ActionButtons component="Board" toggleAddModal={this.toggleAddModal} toggleDeleteModal={this.toggleDeleteModal} />
-                    {addModalOpen ? <AddForm addModalOpen={addModalOpen} toggleAddModal={this.toggleAddModal} title="board" checkExist={checkExist} addData={addData} route={`/${params.locationName}/${params.roomName}`} /> : null}
-                    {deleteModalOpen ? <DeleteForm deleteModalOpen={deleteModalOpen} toggleDeleteModal={this.toggleDeleteModal} title="board" checkExist={checkExist} deleteData={deleteData} data={data} route={`/${params.locationName}/${params.roomName}`} /> : null}
+                    {addModalOpen ? <AddForm addModalOpen={addModalOpen} toggleAddModal={this.toggleAddModal} title="board" checkExist={checkExist} addData={addData} route={`/Store/${params.locationName}/${params.roomName}`} /> : null}
+                    {deleteModalOpen ? <DeleteForm deleteModalOpen={deleteModalOpen} toggleDeleteModal={this.toggleDeleteModal} title="board" checkExist={checkExist} deleteData={deleteData} data={data} route={`/Store/${params.locationName}/${params.roomName}`} /> : null}
                 </div>
             </Fragment>
         );
