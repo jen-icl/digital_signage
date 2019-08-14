@@ -10,17 +10,24 @@ class AddActivityForm extends Component {
             image: '',
             video: ''
         },
-        existingActivity: ['default'],
         newActivityForm: false
     }
 
     handleSubmit = event => {
         event.preventDefault();
-        let { newActivityForm, content, existingActivity } = this.state;
+        let { newActivityForm, content } = this.state;
         const { data, checkExist, addData, toggleAddModal, locationName, roomName, boardName } = this.props;
 
         const hasActivity = data['Store'][locationName][roomName][boardName].panel.hasOwnProperty('Activity');
         const panelPath = `/Store/${locationName}/${roomName}/${boardName}/panel/Activity`;
+        if (hasActivity) {
+            const activityPanelList = data['Store'][locationName][roomName][boardName].panel['Activity'];
+            activityPanelList.push(content.title);
+            addData(panelPath, activityPanelList);
+        } else {
+            //no available Activity Panel, create new Activity key with the new activity array
+            checkExist(addData, panelPath, [content.title]);
+        }
 
         if (newActivityForm) {
             //identify video id and redefine video url to embedded video url
@@ -31,24 +38,6 @@ class AddActivityForm extends Component {
 
             const activityPath = `/Activity/${locationName}/${content.title}`;
             checkExist(addData, activityPath, content);
-
-            if (hasActivity) {
-                const activityPanelList = data['Store'][locationName][roomName][boardName].panel['Activity'];
-                activityPanelList.push(content.title);
-                addData(panelPath, activityPanelList);
-            } else {
-                //no available Activity Panel, create new Activity key with the new activity array
-                checkExist(addData, panelPath, [content.title]);
-            }
-        } else {
-            if (hasActivity) {
-                const activityPanelList = data['Store'][locationName][roomName][boardName].panel['Activity'];
-                const populateActivityList = activityPanelList.concat(existingActivity);
-                addData(panelPath, populateActivityList);
-            } else {
-                //no available Activity Panel, create new Activity key with the new activity array
-                checkExist(addData, panelPath, existingActivity);
-            }
         }
 
         toggleAddModal('Activity');
@@ -67,20 +56,34 @@ class AddActivityForm extends Component {
             });
         } else {
             this.setState({
-                existingActivity: [value]
+                content: {
+                    ...content,
+                    title: value
+                }
             });
         }
-        console.log('form state', this.state)
     }
 
     toggleForm = () => {
         this.setState({
             newActivityForm: !this.state.newActivityForm
+        }, this.resetContent);
+    }
+
+    resetContent = () => {
+        this.setState({
+            content: {
+                type: 'activity',
+                title: '',
+                desc: '',
+                image: '',
+                video: ''
+            }
         });
     }
 
     render() {
-        const { newActivityForm, existingActivity } = this.state;
+        const { newActivityForm, content } = this.state;
         const { data, locationName, roomName, boardName, addModalOpen, title, toggleAddModal } = this.props;
 
         if (Object.keys(data).length === 0) {
@@ -90,15 +93,14 @@ class AddActivityForm extends Component {
         const activityData = data['Activity'][locationName];
         let activityList = [];
         if(activityData !== undefined && Object.keys(activityData).length !== 0) {
-            const hasActivity = data['Store'][locationName][roomName][boardName].panel.hasOwnProperty('Activity');
-            if (hasActivity) {
-                const activityPanelList = data['Store'][locationName][roomName][boardName].panel['Activity'];
-                activityList = Object.keys(activityData).map(key => {
-                    if(activityPanelList.indexOf(key) === -1){
-                        return <option key={key} value={key}>{key}</option>;
-                    }
-                });
-            }
+            const pathToPanel = data['Store'][locationName][roomName][boardName].panel
+            const hasActivity = pathToPanel.hasOwnProperty('Activity');
+            const activityPanelList = hasActivity && pathToPanel['Activity'];
+            activityList = Object.keys(activityData).map(key => {
+                if(activityPanelList && activityPanelList.indexOf(key) === -1) {
+                    return <option key={key} value={key}>{key}</option>;
+                }
+            });
         }
 
         return (
@@ -121,11 +123,11 @@ class AddActivityForm extends Component {
                         <h2>{`Add ${title} Panel`}</h2>
                         <button onClick={this.toggleForm}>Create New Activity</button>
                         <form onSubmit={this.handleSubmit}>
-                            <select name="activity" onChange={this.handleChange} defaultValue="default">
-                                <option disabled value="default">--</option>
+                            <select name="activity" onChange={this.handleChange} defaultValue="--">
+                                <option disabled value="--">--</option>
                                 {activityList}
                             </select>
-                            {existingActivity[0] !== 'default' ? <button type="submit">Create</button> : <button disabled type="submit">Create</button> }
+                            { content.title ? <button type="submit">Create</button> : <button disabled type="submit">Create</button> }
                         </form>
                     </Fragment>
                 }

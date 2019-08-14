@@ -14,6 +14,10 @@ class AddForm extends Component {
         const { title, checkExist, addData, route, toggleAddModal } = this.props;
         const path = `${route}/${name}`;
 
+        if(title === 'location'){
+            checkExist(addData, `/Activity/${name}`)
+        }
+
         if(title === 'board') {
             checkExist(addData, path, {transition, panel: 0});
         } else {

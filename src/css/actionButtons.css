@@ -4,5 +4,6 @@
 }
 
 .action-buttons button {
-    margin: 30px 15px;
+    margin: 30px 15px 0;
+    width: 210px;
 }
