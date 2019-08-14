@@ -59,7 +59,7 @@ class View extends Component {
                 panelList.push(<ListPanel key="list" panelInfo={panelData} />);
             } else if (key === 'Activity') {
                 //Activity Panel
-                panelData.map(activityName => (
+                panelData.forEach(activityName => (
                     panelList.push(<ActivityPanel key={activityName} panelInfo={activityInfo[activityName]} />)
                 ));
             }
