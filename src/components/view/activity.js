@@ -5,7 +5,7 @@ const ActivityPanel = props => {
     return (
         <div className="view-panel activity-panel">
             <div className="background" style={{ backgroundImage: `url(${image})` }}></div>
-            <div className="children">
+            <div className="view-content">
                 <h2>{title}</h2>
                 <p>{desc}</p>
                 <iframe src={video} title={title} height="315" width="560"></iframe>

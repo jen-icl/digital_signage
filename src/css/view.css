@@ -24,7 +24,7 @@
     z-index: -1;
 }
 
-.view-container .view-content .view-panel .children {
+.view-container .view-content .view-panel .view-content {
     margin: 0 auto;
     position: relative;
     border-radius: 10px;

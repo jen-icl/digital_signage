@@ -10,7 +10,7 @@ const ListPanel = props => {
     return (
         <div className="view-panel list-panel">
             <div className="background" style={{ backgroundImage: 'url(https://images.pexels.com/photos/796606/pexels-photo-796606.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)' }}></div>
-            <div className="children">
+            <div className="view-content">
                 <h2>Activity List</h2>
                 <table>
                     <tbody>
