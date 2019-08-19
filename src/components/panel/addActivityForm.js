@@ -8,7 +8,7 @@ class AddActivityForm extends Component {
             title: '',
             desc: '',
             image: '',
-            video: ''
+            videoId: ''
         },
         newActivityForm: false
     }
@@ -30,11 +30,11 @@ class AddActivityForm extends Component {
         }
 
         if (newActivityForm) {
-            //identify video id and redefine video url to embedded video url
-            let { video } = content;
-            video = `/${video}`;
-            const videoId = video.match(/.*(?:youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\/)([^#\&\?]*).*/)[1];
-            content.video = `https://www.youtube.com/embed/${videoId}`;
+            //identify videoId store video data as videoId
+            let { videoId } = content;
+            videoId = `/${videoId}`;
+            const matchForVideoId = videoId.match(/.*(?:youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\/)([^#\&\?]*).*/)[1];
+            content.videoId = matchForVideoId;
 
             const activityPath = `/Activity/${locationName}/${content.title}`;
             checkExist(addData, activityPath, content);
@@ -77,7 +77,7 @@ class AddActivityForm extends Component {
                 title: '',
                 desc: '',
                 image: '',
-                video: ''
+                videoId: ''
             }
         });
     }
@@ -120,7 +120,7 @@ class AddActivityForm extends Component {
                             <input id="title" name="title" type="text" placeholder={`Enter an ${title} title`} onChange={this.handleChange} />
                             <input id="image" name="image" type="text" placeholder={`Enter an ${title} image url`} onChange={this.handleChange} />
                             <textarea id="desc" name="desc" placeholder={`Enter an ${title} description`} onChange={this.handleChange}></textarea>
-                            <input id="video" name="video" type="text" placeholder={`Enter an ${title} video url`} onChange={this.handleChange} />
+                            <input id="videoId" name="videoId" type="text" placeholder={`Enter an ${title} video url`} onChange={this.handleChange} />
                             <button type="submit">Create</button>
                         </form>
                     </Fragment>

@@ -24,7 +24,7 @@
     z-index: -1;
 }
 
-.view-container .view-content .view-panel .view-content {
+.view-container .view-content .view-panel .panel-content {
     margin: 0 auto;
     position: relative;
     border-radius: 10px;
@@ -33,6 +33,11 @@
     padding: 30px;
     top: 10vh;
     width: calc(100vw - 60px - 20vh);
+}
+
+.view-container .view-content .view-panel .panel-content .video-container {
+    margin-top: 30px;
+    /* min-height: 390px; */
 }
 
 .view-container .view-content .list-panel table {

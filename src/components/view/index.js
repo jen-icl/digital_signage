@@ -8,11 +8,13 @@ class View extends Component {
     constructor(props) {
         super(props);
         this.totalFrames = 0;
+        this.interval = null;
         this.state = {
             slideFrame: {
                 left: '0'
             },
-            currentFrame: 0
+            currentFrame: -1,
+            frameDuration: 10000
         }
     }
 
@@ -20,22 +22,40 @@ class View extends Component {
         this.slide();
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        if (this.state.frameDuration !== prevState.frameDuration) {
+            this.slide();
+        }
+    }
+
     slide = () => {
-        setInterval(() => {
+        const { frameDuration } = this.state;
+        console.log('slide', frameDuration)
+
+        this.interval = setInterval(() => {
             let { currentFrame } = this.state;
-            if(currentFrame === this.totalFrames - 1){
+            if (currentFrame === this.totalFrames - 1) {
                 this.setState({
                     slideFrame: { left: 0 },
-                    currentFrame: 0
+                    currentFrame: 0,
+                    frameDuration: 10000
                 });
             } else {
                 currentFrame = currentFrame + 1;
                 this.setState({
                     slideFrame: { left: `-${currentFrame}00vw` },
-                    currentFrame
+                    currentFrame,
+                    frameDuration: 10000
                 });
             }
-        }, 10000);
+        }, frameDuration)
+    }
+
+    extendSlideInterval = extendedTime => {
+        const frameDuration = 12000 + ( extendedTime * 1000 );
+        clearInterval(this.interval);
+        this.setState({frameDuration}, this.slide);
+        console.log('frameDuration', this.state)
     }
 
     renderViewPanel = () => {
@@ -48,19 +68,17 @@ class View extends Component {
         for (let i = 0; i < Object.keys(panelInfo).length; i++) {
             const key = Object.keys(panelInfo)[i];
             const panelData = Object.values(panelInfo)[i];
-            console.log('key', key)
-            console.log('panelData', panelData)
 
             if (panelData.type === 'welcome') {
                 //Welcome Panel
-                panelList.push(<WelcomePanel key={panelData.title} panelInfo={panelData} />);
+                panelList.unshift(<WelcomePanel key={panelData.title} panelInfo={panelData} />);
             } else if (key === 'Activity List') {
                 //List Panel
-                panelList.push(<ListPanel key="list" panelInfo={panelData} />);
+                panelList.unshift(<ListPanel key="list" panelInfo={panelData} />);
             } else if (key === 'Activity') {
                 //Activity Panel
                 panelData.forEach(activityName => (
-                    panelList.push(<ActivityPanel key={activityName} panelInfo={activityInfo[activityName]} />)
+                    panelList.push(<ActivityPanel key={activityName} panelInfo={activityInfo[activityName]} extendSlideInterval={this.extendSlideInterval} />)
                 ));
             }
         }
