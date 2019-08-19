@@ -54,12 +54,11 @@ class Video extends Component {
     }
 
     onPlayerStateChange = event => {
-        if(event.data == window.YT.PlayerState.UNSTARTED) {
+        if (event.data === window.YT.PlayerState.UNSTARTED) {
             const videoDuration = this.player.getDuration();
-            console.log('videoId', this.props.videoId, 'videoDuration', videoDuration)
             this.props.extendSlideInterval(videoDuration)
         }
-        if (event.data == window.YT.PlayerState.ENDED) {
+        if (event.data === window.YT.PlayerState.ENDED) {
             event.target.pauseVideo();
         }
     }

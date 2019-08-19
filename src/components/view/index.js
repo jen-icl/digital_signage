@@ -24,13 +24,13 @@ class View extends Component {
 
     componentDidUpdate(prevProps, prevState) {
         if (this.state.frameDuration !== prevState.frameDuration) {
+            console.log('didUpdate View', this.state.frameDuration)
             this.slide();
         }
     }
 
     slide = () => {
         const { frameDuration } = this.state;
-        console.log('slide', frameDuration)
 
         this.interval = setInterval(() => {
             let { currentFrame } = this.state;
@@ -55,7 +55,6 @@ class View extends Component {
         const frameDuration = 12000 + ( extendedTime * 1000 );
         clearInterval(this.interval);
         this.setState({frameDuration}, this.slide);
-        console.log('frameDuration', this.state)
     }
 
     renderViewPanel = () => {
@@ -72,7 +71,7 @@ class View extends Component {
             if (panelData.type === 'welcome') {
                 //Welcome Panel
                 panelList.unshift(<WelcomePanel key={panelData.title} panelInfo={panelData} />);
-            } else if (key === 'Activity List') {
+            } else if (key === 'List') {
                 //List Panel
                 panelList.unshift(<ListPanel key="list" panelInfo={panelData} />);
             } else if (key === 'Activity') {
