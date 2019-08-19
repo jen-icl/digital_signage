@@ -33,7 +33,7 @@ class AddActivityForm extends Component {
             //identify videoId store video data as videoId
             let { videoId } = content;
             videoId = `/${videoId}`;
-            const matchForVideoId = videoId.match(/.*(?:youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\/)([^#\&\?]*).*/)[1];
+            const matchForVideoId = videoId.match(/.*(?:youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\/)([^#&?]*).*/)[1];
             content.videoId = matchForVideoId;
 
             const activityPath = `/Activity/${locationName}/${content.title}`;

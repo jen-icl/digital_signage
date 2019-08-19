@@ -3,7 +3,7 @@ import Header from '../header';
 import AddWelcomeForm from './addWelcomeForm';
 import AddListForm from './addListForm';
 import AddActivityForm from './addActivityForm';
-import DeleteForm from '../deleteForm';
+import DeletePanelForm from './deletePanelForm';
 import '../../css/component.css';
 
 class Panel extends Component {
@@ -97,7 +97,7 @@ class Panel extends Component {
                     {addWelcomeOpen ? <AddWelcomeForm addModalOpen={addWelcomeOpen} toggleAddModal={this.toggleAddModal} title="welcome" checkExist={checkExist} addData={addData} locationName={params.locationName} roomName={params.roomName} boardName={params.boardName} /> : null}
                     {addListOpen ? <AddListForm addModalOpen={addListOpen} toggleAddModal={this.toggleAddModal} title="list" data={data} checkExist={checkExist} addData={addData} locationName={params.locationName} roomName={params.roomName} boardName={params.boardName} /> : null}
                     {addActivityOpen ? <AddActivityForm addModalOpen={addActivityOpen} toggleAddModal={this.toggleAddModal} title="activity" data={data} checkExist={checkExist} addData={addData} locationName={params.locationName} roomName={params.roomName} boardName={params.boardName} /> : null}
-                    {deleteModalOpen ? <DeleteForm deleteModalOpen={deleteModalOpen} toggleDeleteModal={this.toggleDeleteModal} title="panel" checkExist={checkExist} deleteData={deleteData} data={data} route={`/${params.locationName}/${params.roomName}/${params.boardName}`} /> : null}
+                    {deleteModalOpen ? <DeletePanelForm deleteModalOpen={deleteModalOpen} toggleDeleteModal={this.toggleDeleteModal} title="panel" data={data} checkExist={checkExist} deleteData={deleteData} locationName={params.locationName} roomName={params.roomName} boardName={params.boardName} /> : null}
                 </div>
             </Fragment>
         );
