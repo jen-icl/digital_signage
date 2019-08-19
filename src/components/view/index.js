@@ -71,7 +71,7 @@ class View extends Component {
             if (panelData.type === 'welcome') {
                 //Welcome Panel
                 panelList.unshift(<WelcomePanel key={panelData.title} panelInfo={panelData} />);
-            } else if (key === 'Activity List') {
+            } else if (key === 'List') {
                 //List Panel
                 panelList.unshift(<ListPanel key="list" panelInfo={panelData} />);
             } else if (key === 'Activity') {

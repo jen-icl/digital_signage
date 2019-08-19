@@ -11,7 +11,7 @@
                             "desc": "Two Rooms, Two Challenges. Enjoy the fun!",
                             "image": "https://images.pexels.com/photos/354939/pexels-photo-354939.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
                         },
-                        "Activity List": [
+                        "List": [
                             {
                                 "title": "Back to the Future",
                                 "image": "https://images.pexels.com/photos/269923/pexels-photo-269923.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
@@ -43,7 +43,7 @@
                 "Default": {
                     "transition": false,
                     "panel": {
-                        "Activity List": [
+                        "List": [
                             {
                                 "title": "Back to the Future",
                                 "image": "https://images.pexels.com/photos/269923/pexels-photo-269923.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
@@ -72,7 +72,7 @@
                             "desc": "Three Rooms, Three Challenges. Enjoy the fun!",
                             "image": "https://images.pexels.com/photos/354939/pexels-photo-354939.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
                         },
-                        "Activity List": [
+                        "List": [
                             {
                                 "title": "Back to the Future",
                                 "image": "https://images.pexels.com/photos/269923/pexels-photo-269923.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
@@ -109,7 +109,7 @@
                 "Default": {
                     "transition": false,
                     "panel": {
-                        "Activity List": [
+                        "List": [
                             {
                                 "title": "Back to the Future",
                                 "image": "https://images.pexels.com/photos/269923/pexels-photo-269923.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"

@@ -77,6 +77,7 @@ class Panel extends Component {
 
         //const transitionStatus = data['Store'][params.locationName][params.roomName][params.boardName].transition;
         const activityAvailable = data['Activity'][params.locationName]
+        const panelAvailable = data['Store'][params.locationName][params.roomName][params.boardName].panel
 
         return (
             <Fragment>
@@ -92,12 +93,13 @@ class Panel extends Component {
                         <button onClick={() => this.toggleAddModal('Welcome')}>Add Welcome Panel</button>
                         { activityAvailable ? <button onClick={() => this.toggleAddModal('List')}>Add List Panel</button> : <button disabled>Add List Panel</button> }
                         <button onClick={() => this.toggleAddModal('Activity')}>Add Activity Panel</button>
-                        <button onClick={this.toggleDeleteModal}>Delete Panel</button>
+                        { panelAvailable ? <button onClick={this.toggleDeleteModal}>Delete Panel</button> : <button disabled>Delete Panel</button> }
+
                     </div>
                     {addWelcomeOpen ? <AddWelcomeForm addModalOpen={addWelcomeOpen} toggleAddModal={this.toggleAddModal} title="welcome" checkExist={checkExist} addData={addData} locationName={params.locationName} roomName={params.roomName} boardName={params.boardName} /> : null}
                     {addListOpen ? <AddListForm addModalOpen={addListOpen} toggleAddModal={this.toggleAddModal} title="list" data={data} checkExist={checkExist} addData={addData} locationName={params.locationName} roomName={params.roomName} boardName={params.boardName} /> : null}
                     {addActivityOpen ? <AddActivityForm addModalOpen={addActivityOpen} toggleAddModal={this.toggleAddModal} title="activity" data={data} checkExist={checkExist} addData={addData} locationName={params.locationName} roomName={params.roomName} boardName={params.boardName} /> : null}
-                    {deleteModalOpen ? <DeletePanelForm deleteModalOpen={deleteModalOpen} toggleDeleteModal={this.toggleDeleteModal} title="panel" data={data} checkExist={checkExist} deleteData={deleteData} locationName={params.locationName} roomName={params.roomName} boardName={params.boardName} /> : null}
+                    {deleteModalOpen ? <DeletePanelForm deleteModalOpen={deleteModalOpen} toggleDeleteModal={this.toggleDeleteModal} title="panel" data={data} checkExist={checkExist} addData={addData} deleteData={deleteData} locationName={params.locationName} roomName={params.roomName} boardName={params.boardName} /> : null}
                 </div>
             </Fragment>
         );

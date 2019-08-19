@@ -12,7 +12,7 @@ class AddListForm extends Component {
             ));
         const content = list;
 
-        const panelPath = `/Store/${locationName}/${roomName}/${boardName}/panel/${`Activity List`}`;
+        const panelPath = `/Store/${locationName}/${roomName}/${boardName}/panel/${`List`}`;
         addData(panelPath, content);
         toggleAddModal('List');
     }

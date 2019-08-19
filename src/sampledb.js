@@ -3,7 +3,7 @@ const db = {
     "Irvine, CA": {
         "Classroom": {
             "Default": {
-                "Activity List": {
+                "List": {
                     "0": {
                         "image": "https://images.pexels.com/photos/269923/pexels-photo-269923.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
                         "title": "Back to the Future"
@@ -32,7 +32,7 @@ const db = {
         },
         "Lobby": {
             "Default": {
-                "Activity List": {
+                "List": {
                     "0": {
                         "image": "https://images.pexels.com/photos/269923/pexels-photo-269923.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
                         "title": "Back to the Future"
@@ -77,7 +77,7 @@ const db = {
     "Reno, CA": {
         "Classroom": {
             "Default": {
-                "Activity List": {
+                "List": {
                     "0": {
                         "image": "https://images.pexels.com/photos/269923/pexels-photo-269923.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
                         "title": "Back to the Future"
@@ -106,7 +106,7 @@ const db = {
         },
         "Lobby": {
             "Default": {
-                "Activity List": {
+                "List": {
                     "0": {
                         "image": "https://images.pexels.com/photos/269923/pexels-photo-269923.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
                         "title": "Back to the Future"
