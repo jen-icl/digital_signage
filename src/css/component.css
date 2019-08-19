@@ -44,3 +44,8 @@ li.preview {
 li.preview:hover {
     background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.01),rgb(233, 154, 36));
 }
+
+ul.activity-list {
+    list-style: none;
+    padding: 0;
+}

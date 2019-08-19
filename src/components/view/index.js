@@ -8,11 +8,13 @@ class View extends Component {
     constructor(props) {
         super(props);
         this.totalFrames = 0;
+        this.interval = null;
         this.state = {
             slideFrame: {
                 left: '0'
             },
-            currentFrame: 0
+            currentFrame: -1,
+            frameDuration: 10000
         }
     }
 
@@ -20,44 +22,64 @@ class View extends Component {
         this.slide();
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        if (this.state.frameDuration !== prevState.frameDuration) {
+            this.slide();
+        }
+    }
+
     slide = () => {
-        setInterval(() => {
+        const { frameDuration } = this.state;
+        console.log('slide', frameDuration)
+
+        this.interval = setInterval(() => {
             let { currentFrame } = this.state;
-            if(currentFrame === this.totalFrames - 1){
+            if (currentFrame === this.totalFrames - 1) {
                 this.setState({
                     slideFrame: { left: 0 },
-                    currentFrame: 0
+                    currentFrame: 0,
+                    frameDuration: 10000
                 });
             } else {
                 currentFrame = currentFrame + 1;
                 this.setState({
                     slideFrame: { left: `-${currentFrame}00vw` },
-                    currentFrame
+                    currentFrame,
+                    frameDuration: 10000
                 });
             }
-        }, 10000);
+        }, frameDuration)
+    }
+
+    extendSlideInterval = extendedTime => {
+        const frameDuration = 12000 + ( extendedTime * 1000 );
+        clearInterval(this.interval);
+        this.setState({frameDuration}, this.slide);
+        console.log('frameDuration', this.state)
     }
 
     renderViewPanel = () => {
-        const { locationName, roomName, boardName } = this.props.match.params;
-        const panelInfo = this.props.data[locationName][roomName][boardName];
+        const { data, match: { params } } = this.props;
+        const { locationName, roomName, boardName } = params;
+        const panelInfo = data['Store'][locationName][roomName][boardName].panel;
+        const activityInfo = data['Activity'][locationName];
 
         let panelList = [];
         for (let i = 0; i < Object.keys(panelInfo).length; i++) {
-            const content = Object.values(panelInfo)[i];
-            switch (content.type) {
-                case 'welcome':
-                    panelList.push(<WelcomePanel key={content.title} panelInfo={content} />);
-                    break;
-                case 'list':
-                    const filteredContent = Object.values(content).filter(value => typeof value === 'object');
-                    panelList.push(<ListPanel key="List" panelInfo={filteredContent} />);
-                    break;
-                case 'activity':
-                    panelList.push(<ActivityPanel key={content.title} panelInfo={content} />);
-                    break;
-                default:
-                    break;
+            const key = Object.keys(panelInfo)[i];
+            const panelData = Object.values(panelInfo)[i];
+
+            if (panelData.type === 'welcome') {
+                //Welcome Panel
+                panelList.unshift(<WelcomePanel key={panelData.title} panelInfo={panelData} />);
+            } else if (key === 'Activity List') {
+                //List Panel
+                panelList.unshift(<ListPanel key="list" panelInfo={panelData} />);
+            } else if (key === 'Activity') {
+                //Activity Panel
+                panelData.forEach(activityName => (
+                    panelList.push(<ActivityPanel key={activityName} panelInfo={activityInfo[activityName]} extendSlideInterval={this.extendSlideInterval} />)
+                ));
             }
         }
 
@@ -68,7 +90,7 @@ class View extends Component {
 
     render() {
         const { data } = this.props;
-        const {slideFrame} = this.state;
+        const { slideFrame } = this.state;
         if (Object.keys(data).length === 0) {
             return null;
         }

@@ -45,15 +45,23 @@ class Panel extends Component {
 
     renderPanel = () => {
         const { locationName, roomName, boardName } = this.props.match.params;
-        const panelInfo = this.props.data[locationName][roomName][boardName];
+        const panelInfo = this.props.data['Store'][locationName][roomName][boardName].panel;
 
         if (!panelInfo) {
             return <li>Add a Panel</li>;
         }
 
-        const panelList = Object.keys(panelInfo).map(key => (
-            <li key={key} onClick={() => this.goToPanel(key)}>{key}</li>
-        ));
+        const panelList = Object.keys(panelInfo).map(key => {
+            switch (key) {
+                case 'Activity':
+                    const revealActivity = panelInfo['Activity'].map(activity => {
+                        return <li key={activity} onClick={() => this.goToPanel(activity)}>{activity}</li>;
+                    });
+                    return revealActivity;
+                default:
+                    return <li key={key} onClick={() => this.goToPanel(key)}>{key}</li>;
+            }
+        });
 
         panelList.unshift(<li key="preview" className="preview" onClick={this.goToView}>Preview Entire Board</li>)
 
@@ -67,22 +75,28 @@ class Panel extends Component {
             return null;
         }
 
+        //const transitionStatus = data['Store'][params.locationName][params.roomName][params.boardName].transition;
+        const activityAvailable = data['Activity'][params.locationName]
+
         return (
             <Fragment>
                 <Header />
                 <div className="panel-container">
+                    {/* <p className="transitionStatus">
+                        {`Transition: ${transitionStatus ? 'On' : 'Off'}`}
+                    </p> */}
                     <ul className="panel-list">
                         {this.renderPanel()}
                     </ul>
                     <div className="action-buttons">
                         <button onClick={() => this.toggleAddModal('Welcome')}>Add Welcome Panel</button>
-                        <button onClick={() => this.toggleAddModal('List')}>Add List Panel</button>
+                        { activityAvailable ? <button onClick={() => this.toggleAddModal('List')}>Add List Panel</button> : <button disabled>Add List Panel</button> }
                         <button onClick={() => this.toggleAddModal('Activity')}>Add Activity Panel</button>
                         <button onClick={this.toggleDeleteModal}>Delete Panel</button>
                     </div>
-                    {addWelcomeOpen ? <AddWelcomeForm addModalOpen={addWelcomeOpen} toggleAddModal={this.toggleAddModal} title="welcome" checkExist={checkExist} addData={addData} route={`/${params.locationName}/${params.roomName}/${params.boardName}`} /> : null}
-                    {addListOpen ? <AddListForm addModalOpen={addListOpen} toggleAddModal={this.toggleAddModal} title="list" data={data} checkExist={checkExist} addData={addData} route={`/${params.locationName}/${params.roomName}/${params.boardName}`} /> : null}
-                    {addActivityOpen ? <AddActivityForm addModalOpen={addActivityOpen} toggleAddModal={this.toggleAddModal} title="activity" data={data} checkExist={checkExist} addData={addData} route={`/${params.locationName}/${params.roomName}/${params.boardName}`} /> : null}
+                    {addWelcomeOpen ? <AddWelcomeForm addModalOpen={addWelcomeOpen} toggleAddModal={this.toggleAddModal} title="welcome" checkExist={checkExist} addData={addData} locationName={params.locationName} roomName={params.roomName} boardName={params.boardName} /> : null}
+                    {addListOpen ? <AddListForm addModalOpen={addListOpen} toggleAddModal={this.toggleAddModal} title="list" data={data} checkExist={checkExist} addData={addData} locationName={params.locationName} roomName={params.roomName} boardName={params.boardName} /> : null}
+                    {addActivityOpen ? <AddActivityForm addModalOpen={addActivityOpen} toggleAddModal={this.toggleAddModal} title="activity" data={data} checkExist={checkExist} addData={addData} locationName={params.locationName} roomName={params.roomName} boardName={params.boardName} /> : null}
                     {deleteModalOpen ? <DeleteForm deleteModalOpen={deleteModalOpen} toggleDeleteModal={this.toggleDeleteModal} title="panel" checkExist={checkExist} deleteData={deleteData} data={data} route={`/${params.locationName}/${params.roomName}/${params.boardName}`} /> : null}
                 </div>
             </Fragment>

@@ -3,15 +3,26 @@ import Modal from '../general/modal';
 
 class AddForm extends Component {
     state = {
-        name: ''
+        name: '',
+        transition: true,
+        checked: true
     }
 
     handleSubmit = event => {
         event.preventDefault();
-        const {name} = this.state;
-        const { checkExist, addData, route, toggleAddModal } = this.props;
+        const {name, transition} = this.state;
+        const { title, checkExist, addData, route, toggleAddModal } = this.props;
         const path = `${route}/${name}`;
-        checkExist(addData, path);
+
+        if(title === 'location'){
+            checkExist(addData, `/Activity/${name}`)
+        }
+
+        if(title === 'board') {
+            checkExist(addData, path, {transition, panel: 0});
+        } else {
+            checkExist(addData, path);
+        }
         toggleAddModal();
     }
 
@@ -20,7 +31,15 @@ class AddForm extends Component {
         this.setState({ [name]: value });
     }
 
+    handleCheckbox = () => {
+        this.setState({
+            transition: !this.state.transition,
+            checked: !this.state.checked
+        });
+    }
+
     render() {
+        const { checked } = this.state;
         const { addModalOpen, title, toggleAddModal } = this.props;
 
         return (
@@ -29,6 +48,13 @@ class AddForm extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <h2>{`Add ${title}`}</h2>
                     <input id="name" name="name" type="text" placeholder={`Enter a new ${title} name`} onChange={this.handleChange} />
+                    {title === 'board' ?
+                        <div>
+                            <input type="checkbox" id="transition" name="transition" checked={checked} onChange={this.handleCheckbox} />
+                            <label htmlFor="transition">Transition?</label>
+                        </div>
+                        : null
+                    }
                     <button type="submit">Add</button>
                 </form>
             </Modal >
