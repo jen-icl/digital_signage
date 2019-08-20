@@ -9,7 +9,7 @@ class DeleteForm extends Component {
     handleSubmit = event => {
         event.preventDefault();
         const { selection } = this.state;
-        const { data, checkExist, addData, deleteData, route, toggleDeleteModal } = this.props;
+        const { data, title, checkExist, addData, deleteData, route, toggleDeleteModal } = this.props;
         const path = `${route}/${selection}`;
 
         const pathArray = route.split('/').filter(Boolean);
@@ -20,6 +20,15 @@ class DeleteForm extends Component {
             addData(route)
         } else {
             checkExist(deleteData, path);
+        }
+
+        if (title === 'location') {
+            const activityPath = data['Activity'];
+            if (Object.keys(activityPath).length === 1) {
+                addData(activityPath)
+            } else {
+                checkExist(deleteData, `/Activity/${selection}`);
+            }
         }
 
         toggleDeleteModal();
