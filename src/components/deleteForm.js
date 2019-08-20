@@ -4,14 +4,24 @@ import Modal from '../general/modal';
 class DeleteForm extends Component {
     state = {
         selection: ''
-    }
+    };
 
     handleSubmit = event => {
         event.preventDefault();
         const { selection } = this.state;
-        const { checkExist, deleteData, route, toggleDeleteModal } = this.props;
+        const { data, checkExist, addData, deleteData, route, toggleDeleteModal } = this.props;
         const path = `${route}/${selection}`;
-        checkExist(deleteData, path);
+
+        const pathArray = route.split('/').filter(Boolean);
+        let dataPath = data;
+        pathArray.forEach(key => dataPath = dataPath[key]);
+
+        if (Object.keys(dataPath).length === 1) {
+            addData(route)
+        } else {
+            checkExist(deleteData, path);
+        }
+
         toggleDeleteModal();
     }
 
@@ -21,11 +31,12 @@ class DeleteForm extends Component {
     }
 
     render() {
+        const { selection } = this.state;
         const { deleteModalOpen, title, data, route, toggleDeleteModal } = this.props;
 
-        const path = route.split('/').filter(Boolean);
+        const pathArray = route.split('/').filter(Boolean);
         let dataPath = data;
-        path.forEach(key => dataPath = dataPath[key]);
+        pathArray.forEach(key => dataPath = dataPath[key]);
         let list = [];
         if (dataPath !== undefined) {
             list = Object.keys(dataPath).map(key => (
@@ -42,7 +53,7 @@ class DeleteForm extends Component {
                         <option disabled value="default">--</option>
                         {list}
                     </select>
-                    <button type="submit">Delete</button>
+                    {selection ? <button type="submit">Delete</button> : <button disabled type="submit">Delete</button>}
                 </form>
             </Modal >
         );
