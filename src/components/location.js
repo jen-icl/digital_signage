@@ -50,6 +50,7 @@ class Location extends Component {
             <option key={key} value={key}>{key}</option>
         ));
 
+
         return (
             <Fragment>
                 <Header />
@@ -64,7 +65,7 @@ class Location extends Component {
                     </form>
                     <ActionButtons component="Location" toggleAddModal={this.toggleAddModal} toggleDeleteModal={this.toggleDeleteModal} />
                     {addModalOpen ? <AddForm addModalOpen={addModalOpen} title="location" toggleAddModal={this.toggleAddModal} checkExist={checkExist} addData={addData} route="/Store" /> : null}
-                    {deleteModalOpen ? <DeleteForm deleteModalOpen={deleteModalOpen} title="location" toggleDeleteModal={this.toggleDeleteModal} checkExist={checkExist} deleteData={deleteData} data={data} route="/Store" /> : null}
+                    {deleteModalOpen ? <DeleteForm deleteModalOpen={deleteModalOpen} title="location" data={data} toggleDeleteModal={this.toggleDeleteModal} checkExist={checkExist} addData={addData} deleteData={deleteData} route="/Store" /> : null}
                 </div>
             </Fragment>
         );
