@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import base from '../base';
+import Header from './header';
 import Location from './location';
 import Room from './room';
 import Board from './board';
@@ -72,6 +73,7 @@ class App extends Component {
         console.log('app state', data)
         return (
             <Fragment>
+                <Header />
                 <Switch>
                     <Route exact path="/" render={props => <Location {...props} data={data} checkExist={this.checkExist} addData={this.addData} deleteData={this.deleteData} />} />
                     <Route exact path="/:locationName" render={props => <Room {...props} data={data} checkExist={this.checkExist} addData={this.addData} deleteData={this.deleteData} />} />

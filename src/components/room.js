@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import Header from './header';
 import ActionButtons from './actionButtons';
 import AddForm from './addForm';
 import DeleteForm from './deleteForm';
@@ -52,7 +51,6 @@ class Room extends Component {
 
         return (
             <Fragment>
-                <Header />
                 <div className="room-container">
                     <ul className="room-list">
                         {roomList}

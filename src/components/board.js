@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import Header from './header';
 import ActionButtons from './actionButtons';
 import AddForm from './addForm';
 import DeleteForm from './deleteForm';
@@ -53,7 +52,6 @@ class Board extends Component {
 
         return (
             <Fragment>
-                <Header />
                 <div className="board-container">
                     <ul className="board-list">
                         {boardList}
