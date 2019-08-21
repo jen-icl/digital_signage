@@ -3,7 +3,6 @@ import Header from './header';
 import ActionButtons from './actionButtons';
 import AddForm from './addForm';
 import DeleteForm from './deleteForm';
-import '../css/component.css';
 
 class Location extends Component {
     state = {

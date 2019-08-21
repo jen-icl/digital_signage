@@ -7,6 +7,7 @@ import Board from './board';
 import Panel from './panel';
 import View from './view';
 import NotFound from './notFound';
+import '../css/component.css';
 
 class App extends Component {
     state = {
