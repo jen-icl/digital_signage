@@ -50,6 +50,7 @@ class Location extends Component {
             <option key={key} value={key}>{key}</option>
         ));
 
+        const activeDeleteBtn = !!locationList.length;
 
         return (
             <Fragment>
@@ -63,7 +64,7 @@ class Location extends Component {
                         </select>
                         <button type="submit">Visit Location →</button>
                     </form>
-                    <ActionButtons component="Location" toggleAddModal={this.toggleAddModal} toggleDeleteModal={this.toggleDeleteModal} />
+                    <ActionButtons component="Location" activeDeleteBtn={activeDeleteBtn} toggleAddModal={this.toggleAddModal} toggleDeleteModal={this.toggleDeleteModal} />
                     {addModalOpen ? <AddForm addModalOpen={addModalOpen} title="location" toggleAddModal={this.toggleAddModal} checkExist={checkExist} addData={addData} route="/Store" /> : null}
                     {deleteModalOpen ? <DeleteForm deleteModalOpen={deleteModalOpen} title="location" data={data} toggleDeleteModal={this.toggleDeleteModal} checkExist={checkExist} addData={addData} deleteData={deleteData} route="/Store" /> : null}
                 </div>
