@@ -38,8 +38,8 @@ class AddTextForm extends Component {
         return (
             <Modal open={addModalOpen} >
                 <span onClick={() => toggleAddModal('Text')} className="close-popup">x</span>
+                <h2>{`Add ${type} Panel`}</h2>
                 <form onSubmit={this.handleSubmit}>
-                    <h2>{`Add ${type} Panel`}</h2>
                     <input id="title" name="title" type="text" placeholder={`Enter ${type} panel title`} onChange={this.handleChange} />
                     <input id="image" name="image" type="text" placeholder={`Enter ${type} panel background image url`} onChange={this.handleChange} />
                     <textarea id="desc" name="desc" placeholder={`Enter ${type} panel description`} onChange={this.handleChange}></textarea>

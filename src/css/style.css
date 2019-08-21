@@ -71,6 +71,10 @@ button:disabled, button:disabled:hover, button:disabled:focus {
     cursor: not-allowed;
 }
 
+form {
+    margin-top: 30px;
+}
+
 input, textarea {
     display: block;
     margin: 15px auto;

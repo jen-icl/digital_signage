@@ -56,8 +56,8 @@ class DeleteForm extends Component {
         return (
             <Modal open={deleteModalOpen} >
                 <span onClick={toggleDeleteModal} className="close-popup">x</span>
+                <h2>{`Delete ${component}`}</h2>
                 <form onSubmit={this.handleSubmit}>
-                    <h2>{`Delete ${component}`}</h2>
                     <select name="componentTitle" onChange={this.handleChange} defaultValue="default">
                         <option disabled value="default">--</option>
                         {list}

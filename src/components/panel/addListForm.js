@@ -32,8 +32,8 @@ class AddListForm extends Component {
         return (
             <Modal open={addModalOpen} >
                 <span onClick={() => toggleAddModal('List')} className="close-popup">x</span>
+                <h2>{`Create ${type} Panel`}</h2>
                 <form onSubmit={this.handleSubmit}>
-                    <h2>{`Create ${type} Panel`}</h2>
                     <ul className="activity-list">
                         {activityList}
                     </ul>

@@ -49,8 +49,8 @@ class AddForm extends Component {
         return (
             <Modal open={addModalOpen} >
                 <span onClick={toggleAddModal} className="close-popup">x</span>
+                <h2>{`Add ${component}`}</h2>
                 <form onSubmit={this.handleSubmit}>
-                    <h2>{`Add ${component}`}</h2>
                     <input id="componentTitle" name="componentTitle" type="text" placeholder={`Enter a new ${component} title`} onChange={this.handleChange} />
                     { component === 'board' ?
                         <div>
