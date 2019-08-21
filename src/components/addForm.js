@@ -3,27 +3,31 @@ import Modal from '../general/modal';
 
 class AddForm extends Component {
     state = {
-        name: '',
+        componentTitle: '',
         transition: true,
         checked: true
     }
 
     handleSubmit = event => {
         event.preventDefault();
-        const {name, transition} = this.state;
-        const { title, checkExist, addData, route, toggleAddModal } = this.props;
-        const path = `${route}/${name}`;
+        const { componentTitle, transition } = this.state;
+        const { component, checkExist, addData, route, toggleAddModal } = this.props;
 
-        if (title === 'location'){
-            checkExist(addData, `/Activity/${name}`)
-        }
+        if (componentTitle) {
+            const path = `${route}/${componentTitle}`;
 
-        if (title === 'board') {
-            checkExist(addData, path, {transition, panel: 0});
-        } else {
-            checkExist(addData, path);
+            if (component === 'location') {
+                checkExist(addData, `/Activity/${componentTitle}`)
+            }
+
+            if (component === 'board') {
+                checkExist(addData, path, { transition, panel: 0 });
+            } else {
+                checkExist(addData, path);
+            }
+
+            toggleAddModal();
         }
-        toggleAddModal();
     }
 
     handleChange = event => {
@@ -39,23 +43,23 @@ class AddForm extends Component {
     }
 
     render() {
-        const { checked } = this.state;
-        const { addModalOpen, title, toggleAddModal } = this.props;
+        const { componentTitle, checked } = this.state;
+        const { addModalOpen, component, toggleAddModal } = this.props;
 
         return (
             <Modal open={addModalOpen} >
                 <span onClick={toggleAddModal} className="close-popup">x</span>
                 <form onSubmit={this.handleSubmit}>
-                    <h2>{`Add ${title}`}</h2>
-                    <input id="name" name="name" type="text" placeholder={`Enter a new ${title} name`} onChange={this.handleChange} />
-                    {title === 'board' ?
+                    <h2>{`Add ${component}`}</h2>
+                    <input id="componentTitle" name="componentTitle" type="text" placeholder={`Enter a new ${component} title`} onChange={this.handleChange} />
+                    { component === 'board' ?
                         <div>
                             <input type="checkbox" id="transition" name="transition" checked={checked} onChange={this.handleCheckbox} />
                             <label htmlFor="transition">Transition?</label>
-                        </div>
-                        : null
+                        </div> :
+                        null
                     }
-                    <button type="submit">Add</button>
+                    { componentTitle ? <button type="submit">Add</button> : <button disabled type="submit">Add</button> }
                 </form>
             </Modal >
         );

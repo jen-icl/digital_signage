@@ -5,7 +5,6 @@ import AddWelcomeForm from './addWelcomeForm';
 import AddListForm from './addListForm';
 import AddActivityForm from './addActivityForm';
 import DeletePanelForm from './deletePanelForm';
-import '../../css/component.css';
 
 class Panel extends Component {
     state = {

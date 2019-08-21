@@ -3,7 +3,6 @@ import Header from './header';
 import ActionButtons from './actionButtons';
 import AddForm from './addForm';
 import DeleteForm from './deleteForm';
-import '../css/component.css';
 
 class Board extends Component {
     state = {
@@ -60,8 +59,8 @@ class Board extends Component {
                         {boardList}
                     </ul>
                     <ActionButtons component="Board" activeDeleteBtn={activeDeleteBtn} toggleAddModal={this.toggleAddModal} toggleDeleteModal={this.toggleDeleteModal} />
-                    {addModalOpen ? <AddForm addModalOpen={addModalOpen} toggleAddModal={this.toggleAddModal} title="board" checkExist={checkExist} addData={addData} route={`/Store/${params.locationName}/${params.roomName}`} /> : null}
-                    {deleteModalOpen ? <DeleteForm deleteModalOpen={deleteModalOpen} toggleDeleteModal={this.toggleDeleteModal} title="board" data={data} checkExist={checkExist} addData={addData} deleteData={deleteData} route={`/Store/${params.locationName}/${params.roomName}`} /> : null}
+                    {addModalOpen ? <AddForm addModalOpen={addModalOpen} toggleAddModal={this.toggleAddModal} component="board" checkExist={checkExist} addData={addData} route={`/Store/${params.locationName}/${params.roomName}`} /> : null}
+                    {deleteModalOpen ? <DeleteForm deleteModalOpen={deleteModalOpen} toggleDeleteModal={this.toggleDeleteModal} component="board" data={data} checkExist={checkExist} addData={addData} deleteData={deleteData} route={`/Store/${params.locationName}/${params.roomName}`} /> : null}
                 </div>
             </Fragment>
         );

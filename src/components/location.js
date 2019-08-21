@@ -3,7 +3,6 @@ import Header from './header';
 import ActionButtons from './actionButtons';
 import AddForm from './addForm';
 import DeleteForm from './deleteForm';
-import '../css/component.css';
 
 class Location extends Component {
     state = {
@@ -65,8 +64,8 @@ class Location extends Component {
                         <button type="submit">Visit Location →</button>
                     </form>
                     <ActionButtons component="Location" activeDeleteBtn={activeDeleteBtn} toggleAddModal={this.toggleAddModal} toggleDeleteModal={this.toggleDeleteModal} />
-                    {addModalOpen ? <AddForm addModalOpen={addModalOpen} title="location" toggleAddModal={this.toggleAddModal} checkExist={checkExist} addData={addData} route="/Store" /> : null}
-                    {deleteModalOpen ? <DeleteForm deleteModalOpen={deleteModalOpen} title="location" data={data} toggleDeleteModal={this.toggleDeleteModal} checkExist={checkExist} addData={addData} deleteData={deleteData} route="/Store" /> : null}
+                    {addModalOpen ? <AddForm addModalOpen={addModalOpen} component="location" toggleAddModal={this.toggleAddModal} checkExist={checkExist} addData={addData} route="/Store" /> : null}
+                    {deleteModalOpen ? <DeleteForm deleteModalOpen={deleteModalOpen} component="location" data={data} toggleDeleteModal={this.toggleDeleteModal} checkExist={checkExist} addData={addData} deleteData={deleteData} route="/Store" /> : null}
                 </div>
             </Fragment>
         );

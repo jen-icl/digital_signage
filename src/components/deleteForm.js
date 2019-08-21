@@ -3,14 +3,14 @@ import Modal from '../general/modal';
 
 class DeleteForm extends Component {
     state = {
-        selection: ''
+        componentTitle: ''
     };
 
     handleSubmit = event => {
         event.preventDefault();
-        const { selection } = this.state;
-        const { data, title, checkExist, addData, deleteData, route, toggleDeleteModal } = this.props;
-        const path = `${route}/${selection}`;
+        const { componentTitle } = this.state;
+        const { data, component, checkExist, addData, deleteData, route, toggleDeleteModal } = this.props;
+        const path = `${route}/${componentTitle}`;
 
         const pathArray = route.split('/').filter(Boolean);
         let dataPath = data;
@@ -22,12 +22,12 @@ class DeleteForm extends Component {
             checkExist(deleteData, path);
         }
 
-        if (title === 'location') {
-            const activityPath = data['Activity'];
-            if (Object.keys(activityPath).length === 1) {
-                addData(activityPath)
+        if (component === 'location') {
+            const activityData = data['Activity'];
+            if (Object.keys(activityData).length === 1) {
+                addData(`/Activity`);
             } else {
-                checkExist(deleteData, `/Activity/${selection}`);
+                checkExist(deleteData, `/Activity/${componentTitle}`);
             }
         }
 
@@ -40,8 +40,8 @@ class DeleteForm extends Component {
     }
 
     render() {
-        const { selection } = this.state;
-        const { deleteModalOpen, title, data, route, toggleDeleteModal } = this.props;
+        const { componentTitle } = this.state;
+        const { deleteModalOpen, component, data, route, toggleDeleteModal } = this.props;
 
         const pathArray = route.split('/').filter(Boolean);
         let dataPath = data;
@@ -57,12 +57,12 @@ class DeleteForm extends Component {
             <Modal open={deleteModalOpen} >
                 <span onClick={toggleDeleteModal} className="close-popup">x</span>
                 <form onSubmit={this.handleSubmit}>
-                    <h2>{`Delete ${title}`}</h2>
-                    <select name="selection" onChange={this.handleChange} defaultValue="default">
+                    <h2>{`Delete ${component}`}</h2>
+                    <select name="componentTitle" onChange={this.handleChange} defaultValue="default">
                         <option disabled value="default">--</option>
                         {list}
                     </select>
-                    {selection ? <button type="submit">Delete</button> : <button disabled type="submit">Delete</button>}
+                    { componentTitle ? <button type="submit">Delete</button> : <button disabled type="submit">Delete</button> }
                 </form>
             </Modal >
         );
