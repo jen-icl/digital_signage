@@ -26,7 +26,7 @@
     font-size: 20px;
     font-weight: 600;
     border-radius: 5px;
-    background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.01),rgb(71, 110, 158));
+    background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.01),#476e9e);
     box-shadow: 2px 2px 6px rgba(76, 117, 252, 0.3);
     transition: background 0.5s, color 0.5s;
     cursor: pointer;
@@ -34,15 +34,15 @@
 
 .room-list > li:hover, .board-list > li:hover, .panel-list > li:hover {
     background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.01), rgb(62, 95, 136));
-    color: white;
+    color: #fff;
 }
 
 li.preview {
-    background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.01),rgb(245, 165, 45));
+    background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.01),#f5a52d);
 }
 
 li.preview:hover {
-    background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.01),rgb(233, 154, 36));
+    background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.01),#e99a24);
 }
 
 ul.activity-list {

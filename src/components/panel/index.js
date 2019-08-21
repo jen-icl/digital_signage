@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import Header from '../header';
+import { Link } from 'react-router-dom';
 import AddWelcomeForm from './addWelcomeForm';
 import AddListForm from './addListForm';
 import AddActivityForm from './addActivityForm';
@@ -35,13 +36,13 @@ class Panel extends Component {
         // });
     }
 
-    goToView = () => {
-        const { location, location: { state } } = this.props;
-        this.props.history.push({
-            pathname: `/view${location.pathname}`,
-            state
-        });
-    }
+    // goToView = () => {
+    //     const { location, location: { state } } = this.props;
+    //     this.props.history.push({
+    //         pathname: `/view${location.pathname}`,
+    //         state
+    //     });
+    // }
 
     renderPanel = () => {
         const { locationName, roomName, boardName } = this.props.match.params;
@@ -63,7 +64,11 @@ class Panel extends Component {
             }
         });
 
-        panelList.unshift(<li key="preview" className="preview" onClick={this.goToView}>Preview Entire Board</li>)
+        panelList.unshift(
+            <li key="preview" className="preview">
+                <Link to={`/view/${locationName}/${roomName}/${boardName}`} target="_blank">Preview Entire Board</Link>
+            </li>
+        );
 
         return panelList;
     }
