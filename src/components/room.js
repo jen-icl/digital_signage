@@ -31,21 +31,6 @@ class Room extends Component {
         });
     }
 
-    renderRoom = () => {
-        const { locationName } = this.props.match.params;
-        const roomInfo = this.props.data['Store'][locationName];
-
-        if (!roomInfo) {
-            return <li onClick={this.toggleAddModal}>Add a Room</li>;
-        }
-
-        const roomList = Object.keys(roomInfo).map(key => (
-            <li key={key} onClick={() => this.goToRoom(key)}>{key}</li>
-        ));
-
-        return roomList;
-    }
-
     render() {
         const { addModalOpen, deleteModalOpen } = this.state;
         const { data, checkExist, addData, deleteData, match: {params} } = this.props;
@@ -53,14 +38,27 @@ class Room extends Component {
             return null;
         }
 
+        const { locationName } = params;
+        const roomInfo = data['Store'][locationName];
+        let roomList = [];
+
+        if (!roomInfo) {
+            roomList.push(<li key="Add a Room" onClick={this.toggleAddModal}>Add a Room</li>);
+        } else {
+            roomList = Object.keys(roomInfo).map(key => (
+                <li key={key} onClick={() => this.goToRoom(key)}>{key}</li>
+            ));
+        }
+        const activeDeleteBtn = !!Object.keys(roomInfo).length;
+
         return (
             <Fragment>
                 <Header />
                 <div className="room-container">
                     <ul className="room-list">
-                        {this.renderRoom()}
+                        {roomList}
                     </ul>
-                    <ActionButtons component="Room" toggleAddModal={this.toggleAddModal} toggleDeleteModal={this.toggleDeleteModal} />
+                    <ActionButtons component="Room" activeDeleteBtn={activeDeleteBtn} toggleAddModal={this.toggleAddModal} toggleDeleteModal={this.toggleDeleteModal} />
                     {addModalOpen ? <AddForm addModalOpen={addModalOpen} toggleAddModal={this.toggleAddModal} title="room" checkExist={checkExist} addData={addData} route={`/Store/${params.locationName}`} /> : null}
                     {deleteModalOpen ? <DeleteForm deleteModalOpen={deleteModalOpen} toggleDeleteModal={this.toggleDeleteModal} title="room" data={data} checkExist={checkExist} addData={addData} deleteData={deleteData} route={`/Store/${params.locationName}`} /> : null}
                 </div>
