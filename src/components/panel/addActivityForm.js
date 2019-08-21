@@ -15,7 +15,7 @@ class AddActivityForm extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        let { newActivityForm, content } = this.state;
+        const { newActivityForm, content } = this.state;
         const { data, checkExist, addData, toggleAddModal, locationName, roomName, boardName } = this.props;
 
         const hasActivity = data['Store'][locationName][roomName][boardName].panel.hasOwnProperty('Activity');
@@ -83,8 +83,8 @@ class AddActivityForm extends Component {
     }
 
     render() {
-        const { newActivityForm, content } = this.state;
-        const { data, locationName, roomName, boardName, addModalOpen, title, toggleAddModal } = this.props;
+        const { newActivityForm, content: { title, desc, image, videoId } } = this.state;
+        const { data, locationName, roomName, boardName, addModalOpen, type, toggleAddModal } = this.props;
 
         if (Object.keys(data).length === 0) {
             return null;
@@ -114,26 +114,26 @@ class AddActivityForm extends Component {
                 <span onClick={() => toggleAddModal('Activity')} className="close-popup">x</span>
                 {newActivityForm ?
                     <Fragment>
-                        <h2>{`Add ${title} Panel`}</h2>
+                        <h2>{`Add ${type} Panel`}</h2>
                         <button onClick={this.toggleForm}>Add Existing Activity</button>
                         <form onSubmit={this.handleSubmit}>
-                            <input id="title" name="title" type="text" placeholder={`Enter an ${title} title`} onChange={this.handleChange} />
-                            <input id="image" name="image" type="text" placeholder={`Enter an ${title} image url`} onChange={this.handleChange} />
-                            <textarea id="desc" name="desc" placeholder={`Enter an ${title} description`} onChange={this.handleChange}></textarea>
-                            <input id="videoId" name="videoId" type="text" placeholder={`Enter an ${title} video url`} onChange={this.handleChange} />
-                            <button type="submit">Create</button>
+                            <input id="title" name="title" type="text" placeholder={`Enter ${type} panel title`} onChange={this.handleChange} />
+                            <input id="image" name="image" type="text" placeholder={`Enter ${type} panel background image url`} onChange={this.handleChange} />
+                            <textarea id="desc" name="desc" placeholder={`Enter ${type} panel description`} onChange={this.handleChange}></textarea>
+                            <input id="videoId" name="videoId" type="text" placeholder={`Enter ${type} panel video url`} onChange={this.handleChange} />
+                            { title && desc && image && videoId ? <button type="submit">Create</button> : <button disabled type="submit">Create</button> }
                         </form>
                     </Fragment>
                     :
                     <Fragment>
-                        <h2>{`Add ${title} Panel`}</h2>
+                        <h2>{`Add ${type} Panel`}</h2>
                         <button onClick={this.toggleForm}>Create New Activity</button>
                         <form onSubmit={this.handleSubmit}>
                             <select name="activity" onChange={this.handleChange} defaultValue="--">
                                 <option disabled value="--">--</option>
                                 {activityList}
                             </select>
-                            { content.title ? <button type="submit">Create</button> : <button disabled type="submit">Create</button> }
+                            { title && desc && image && videoId ? <button type="submit">Create</button> : <button disabled type="submit">Create</button> }
                         </form>
                     </Fragment>
                 }

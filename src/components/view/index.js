@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import WelcomePanel from './welcome';
+import TextPanel from './text';
 import ListPanel from './list';
 import ActivityPanel from './activity';
 import '../../css/view.css';
@@ -68,9 +68,9 @@ class View extends Component {
             const key = Object.keys(panelInfo)[i];
             const panelData = Object.values(panelInfo)[i];
 
-            if (panelData.type === 'welcome') {
-                //Welcome Panel
-                panelList.unshift(<WelcomePanel key={panelData.title} panelInfo={panelData} />);
+            if (panelData.type === 'text') {
+                //Text Panel
+                panelList.unshift(<TextPanel key={panelData.title} panelInfo={panelData} />);
             } else if (key === 'List') {
                 //List Panel
                 panelList.unshift(<ListPanel key="list" panelInfo={panelData} />);

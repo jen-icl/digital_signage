@@ -32,7 +32,7 @@ class DeletePanelForm extends Component {
                 addData(deleteActivityPath, activityData);
             }
         } else {
-            //deleting welcome and list panels
+            //deleting text and list panels
             if (Object.keys(panelData).length === 1) {
                 //single panel in the entire board, overwrites panelData = 0, prevents cascading deletions, path: Store|location|room|board|panel = 0
                 addData(path);
@@ -95,10 +95,10 @@ vGet Panel Details
 vPre-fill Select Tag
 vDisable submit button if nothing selected
 vonSubmit
-    (Welcome) or any Random Title and List
+    (Text) or any Random Title and List
         1. Check if there's only one panel
         2. If one panel >>> addData location|room|board|panel: 0
-        3. If more than one panel >>> deleteData location|room|board|panel|(Welcome) or any Random Title / List
+        3. If more than one panel >>> deleteData location|room|board|panel|(Text) or any Random Title / List
     Activity
         1. Check Activity Array.length if there's only one Activity panel
         2. If one Activity panel >>> check if panel only has one panel >>> addData location|room|board|panel: 0
