@@ -28,26 +28,26 @@
     margin: 0 auto;
     position: relative;
     border-radius: 10px;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #e5e5e5;
     padding: 30px;
-    top: 10vh;
+    top: 50%;
+    transform: translateY(-50%);
     width: calc(100vw - 60px - 20vh);
 }
 
 .view-container .view-content .view-panel .panel-content .video-container {
     margin-top: 30px;
-    /* min-height: 390px; */
 }
 
 .view-container .view-content .list-panel table {
     margin: 0 auto;
-    border: 1px solid black;
+    border: 1px solid #000;
 }
 
 .view-container .view-content .list-panel td {
     padding: 15px 30px;
-    border: 1px solid black;
+    border: 1px solid #000;
 }
 
 .view-container .view-content .list-panel img {

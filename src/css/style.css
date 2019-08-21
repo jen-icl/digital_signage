@@ -19,20 +19,25 @@ h1 {
 
 h2 {
     text-align: center;
-    margin-top: 0;
-    font-size: 36px;
-    text-transform: uppercase;
-}
-
-h6 {
     margin: 0;
-    font-size: 20px;
-    font-weight: 500;
+    margin-bottom: 30px;
+    font-size: 45px;
+    text-transform: uppercase;
 }
 
 p {
     margin-top: 30px;
-    font-size: 16px;
+    font-size: 22px;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+    transition: color 0.5s;
+}
+
+a:hover {
+    color: #fff;
 }
 
 button {
@@ -41,16 +46,16 @@ button {
     border-radius: 5px;
     font-size: 16px;
     font-weight: 600;
-    color: rgb(0, 0, 0);
+    color: #000;
     background-color: none;
-    border: 1px solid rgb(71, 110, 158);
+    border: 1px solid #476e9e;
     transition: background-color 0.5s, color 0.5s;
     cursor: pointer;
 }
 
 button:hover, button:focus {
     color: #fff;
-    background-color: rgb(71, 110, 158);
+    background-color: #476e9e;
 }
 
 button[type=submit] {
@@ -60,9 +65,9 @@ button[type=submit] {
 }
 
 button:disabled, button:disabled:hover, button:disabled:focus {
-    color: rgb(99, 99, 99);
-    border: 1px solid rgb(170, 170, 170);
-    background-color: rgb(229, 229, 229);
+    color: #636363;
+    border: 1px solid #aaa;
+    background-color: #e5e5e5;
     cursor: not-allowed;
 }
 
@@ -72,7 +77,7 @@ input, textarea {
     width: 50%;
     padding: 20px 30px;
     border-radius: 5px;
-    border: 1px solid rgb(71, 110, 158);
+    border: 1px solid #476e9e;
     font-size: 16px;
 }
 
@@ -93,7 +98,7 @@ select {
     padding: .6rem 1.4rem .6rem .8rem;
     max-width: 80%;
     box-sizing: border-box;
-    border: 1px solid rgb(170, 170, 170);
+    border: 1px solid #aaa;
     box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
     border-radius: .5rem;
     -moz-appearance: none;
@@ -101,7 +106,7 @@ select {
     appearance: none;
     background-color: #fff;
     background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
-        linear-gradient(to bottom, rgb(255, 255, 255) 0%,rgb(229, 229, 229) 100%);
+        linear-gradient(to bottom, #fff 0%,#e5e5e5 100%);
     background-repeat: no-repeat;
     background-position: right .7em top 50%, 0 0;
     background-size: .65em auto, 100%;
@@ -112,12 +117,12 @@ select::-ms-expand {
 }
 
 select:hover {
-    border-color: rgb(136, 136, 136);
+    border-color: #888;
 }
 
 select:focus {
-    border-color: rgb(170, 170, 170);
-    color: rgb(34, 34, 34);
+    border-color: #aaa;
+    color: #222;
     outline: none;
 }
 
@@ -127,11 +132,11 @@ select option {
 
 /* Disabled styles */
 select:disabled, select[aria-disabled=true] {
-    color: rgb(128, 128, 128);
+    color: #808080;
     background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22graytext%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
-        linear-gradient(to bottom, rgb(255, 255, 255) 0%,rgb(229, 229, 229) 100%);
+        linear-gradient(to bottom, #fff 0%,#e5e5e5 100%);
 }
 
 select:disabled:hover, select[aria-disabled=true] {
-    border-color: rgb(170, 170, 170);
+    border-color: #aaa;
 }
