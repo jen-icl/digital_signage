@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import Header from '../header';
 import { Link } from 'react-router-dom';
 import AddWelcomeForm from './addWelcomeForm';
 import AddListForm from './addListForm';
@@ -85,7 +84,6 @@ class Panel extends Component {
 
         return (
             <Fragment>
-                <Header />
                 <div className="panel-container">
                     {/* <p className="transitionStatus">
                         {`Transition: ${transitionStatus ? 'On' : 'Off'}`}
