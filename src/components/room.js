@@ -58,8 +58,8 @@ class Room extends Component {
                         {roomList}
                     </ul>
                     <ActionButtons component="Room" activeDeleteBtn={activeDeleteBtn} toggleAddModal={this.toggleAddModal} toggleDeleteModal={this.toggleDeleteModal} />
-                    {addModalOpen ? <AddForm addModalOpen={addModalOpen} toggleAddModal={this.toggleAddModal} title="room" checkExist={checkExist} addData={addData} route={`/Store/${params.locationName}`} /> : null}
-                    {deleteModalOpen ? <DeleteForm deleteModalOpen={deleteModalOpen} toggleDeleteModal={this.toggleDeleteModal} title="room" data={data} checkExist={checkExist} addData={addData} deleteData={deleteData} route={`/Store/${params.locationName}`} /> : null}
+                    {addModalOpen ? <AddForm addModalOpen={addModalOpen} toggleAddModal={this.toggleAddModal} component="room" checkExist={checkExist} addData={addData} route={`/Store/${params.locationName}`} /> : null}
+                    {deleteModalOpen ? <DeleteForm deleteModalOpen={deleteModalOpen} toggleDeleteModal={this.toggleDeleteModal} component="room" data={data} checkExist={checkExist} addData={addData} deleteData={deleteData} route={`/Store/${params.locationName}`} /> : null}
                 </div>
             </Fragment>
         );
