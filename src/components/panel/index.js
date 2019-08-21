@@ -1,13 +1,13 @@
 import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
-import AddWelcomeForm from './addWelcomeForm';
+import AddTextForm from './addTextForm';
 import AddListForm from './addListForm';
 import AddActivityForm from './addActivityForm';
 import DeletePanelForm from './deletePanelForm';
 
 class Panel extends Component {
     state = {
-        addWelcomeOpen: false,
+        addTextOpen: false,
         addListOpen: false,
         addActivityOpen: false,
         deleteModalOpen: false
@@ -72,7 +72,7 @@ class Panel extends Component {
     }
 
     render() {
-        const { addWelcomeOpen, addListOpen, addActivityOpen, deleteModalOpen } = this.state;
+        const { addTextOpen, addListOpen, addActivityOpen, deleteModalOpen } = this.state;
         const { data, checkExist, addData, deleteData, match: { params } } = this.props;
         if (Object.keys(data).length === 0) {
             return null;
@@ -92,15 +92,15 @@ class Panel extends Component {
                         {this.renderPanel()}
                     </ul>
                     <div className="action-buttons">
-                        <button onClick={() => this.toggleAddModal('Welcome')}>Add Welcome Panel</button>
+                        <button onClick={() => this.toggleAddModal('Text')}>Add Text Panel</button>
                         { activityAvailable ? <button onClick={() => this.toggleAddModal('List')}>Add List Panel</button> : <button disabled>Add List Panel</button> }
                         <button onClick={() => this.toggleAddModal('Activity')}>Add Activity Panel</button>
                         { panelAvailable ? <button onClick={this.toggleDeleteModal}>Delete Panel</button> : <button disabled>Delete Panel</button> }
 
                     </div>
-                    {addWelcomeOpen ? <AddWelcomeForm addModalOpen={addWelcomeOpen} toggleAddModal={this.toggleAddModal} title="welcome" checkExist={checkExist} addData={addData} locationName={params.locationName} roomName={params.roomName} boardName={params.boardName} /> : null}
-                    {addListOpen ? <AddListForm addModalOpen={addListOpen} toggleAddModal={this.toggleAddModal} title="list" data={data} checkExist={checkExist} addData={addData} locationName={params.locationName} roomName={params.roomName} boardName={params.boardName} /> : null}
-                    {addActivityOpen ? <AddActivityForm addModalOpen={addActivityOpen} toggleAddModal={this.toggleAddModal} title="activity" data={data} checkExist={checkExist} addData={addData} locationName={params.locationName} roomName={params.roomName} boardName={params.boardName} /> : null}
+                    {addTextOpen ? <AddTextForm addModalOpen={addTextOpen} toggleAddModal={this.toggleAddModal} type="text" checkExist={checkExist} addData={addData} locationName={params.locationName} roomName={params.roomName} boardName={params.boardName} /> : null}
+                    {addListOpen ? <AddListForm addModalOpen={addListOpen} toggleAddModal={this.toggleAddModal} type="list" data={data} checkExist={checkExist} addData={addData} locationName={params.locationName} roomName={params.roomName} boardName={params.boardName} /> : null}
+                    {addActivityOpen ? <AddActivityForm addModalOpen={addActivityOpen} toggleAddModal={this.toggleAddModal} type="activity" data={data} checkExist={checkExist} addData={addData} locationName={params.locationName} roomName={params.roomName} boardName={params.boardName} /> : null}
                     {deleteModalOpen ? <DeletePanelForm deleteModalOpen={deleteModalOpen} toggleDeleteModal={this.toggleDeleteModal} title="panel" data={data} checkExist={checkExist} addData={addData} deleteData={deleteData} locationName={params.locationName} roomName={params.roomName} boardName={params.boardName} /> : null}
                 </div>
             </Fragment>

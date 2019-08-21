@@ -5,7 +5,7 @@ import '../css/header.css';
 const Header = props => {
     const { location } = props;
 
-    if ( location.pathname.match('/view')) {
+    if (location.pathname.match('/view')) {
         return null;
     }
 

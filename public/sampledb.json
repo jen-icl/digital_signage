@@ -6,7 +6,7 @@
                     "transition": true,
                     "panel": {
                         "Welcome": {
-                            "type": "welcome",
+                            "type": "text",
                             "title": "Welcome to Escape Room Irvine",
                             "desc": "Two Rooms, Two Challenges. Enjoy the fun!",
                             "image": "https://images.pexels.com/photos/354939/pexels-photo-354939.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
@@ -27,7 +27,7 @@
                     "transition": true,
                     "panel": {
                         "Welcome": {
-                            "type": "welcome",
+                            "type": "text",
                             "title": "Welcome (Company) to Escape Room",
                             "desc": "Two Rooms, Two Challenges. Enjoy the fun!",
                             "image": "https://images.pexels.com/photos/354939/pexels-photo-354939.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
@@ -67,7 +67,7 @@
                     "transition": true,
                     "panel": {
                         "Welcome": {
-                            "type": "welcome",
+                            "type": "text",
                             "title": "Welcome to Escape Room Reno",
                             "desc": "Three Rooms, Three Challenges. Enjoy the fun!",
                             "image": "https://images.pexels.com/photos/354939/pexels-photo-354939.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
@@ -92,7 +92,7 @@
                     "transition": true,
                     "panel": {
                         "Welcome": {
-                            "type": "welcome",
+                            "type": "text",
                             "title": "Welcome to Escape Room",
                             "desc": "Two Rooms, Two Challenges. Enjoy the fun!",
                             "image": "https://images.pexels.com/photos/354939/pexels-photo-354939.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
