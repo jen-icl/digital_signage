@@ -8,7 +8,7 @@ const ListItem = props => {
                 <img src={image} alt={title} />
             </td>
             <td>
-                <p>{title}</p>
+                <span>{title}</span>
             </td>
         </tr>
     );
