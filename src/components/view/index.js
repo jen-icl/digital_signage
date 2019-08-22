@@ -54,7 +54,7 @@ class View extends Component {
     extendSlideInterval = extendedTime => {
         const frameDuration = 12000 + ( extendedTime * 1000 );
         clearInterval(this.interval);
-        this.setState({frameDuration}, this.slide);
+        this.setState({frameDuration});
     }
 
     renderViewPanel = () => {
