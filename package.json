@@ -13,7 +13,7 @@
     "url": "https://github.com/jen-icl/digital_signage.git"
   },
   "dependencies": {
-    "firebase": "^5.7.0",
+    "firebase": "^10.9.0",
     "prop-types": "^15.6.0",
     "re-base": "4.0.0",
     "react": "^16.6.3",
